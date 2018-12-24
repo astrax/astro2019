@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} PROPRE DATE ET HEURE TU}
+\PYG{n}{obs}\PYG{o}{.}\PYG{n}{date} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}2019/01/13 10:00:00\PYGZdq{}}
+\end{Verbatim}

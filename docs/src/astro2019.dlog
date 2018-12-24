@@ -1,0 +1,69 @@
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+Wrong syntax of author(s) and institution(s): too many "at":
+Ahmed Ammar {copyright|CC BY} Email:ahmed.ammar@fst.utm.tn at Faculté des Sciences, Université de Tunis El Manar and at Société Astronomique de Tunisie.
+author at inst1, adr1 and inst2, adr2a, adr2b and inst3, adr3
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+output in astro2019.html
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+output in astro2019.html
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+output in astro2019.html
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+
+...doconce translation: insertion of verbatim and latex blocks 60.6 s (accumulated time: 61.4)
+
+
+...doconce format used 62.4 s to translate the document (190 lines)
+
+output in astro2019.html
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+
+...doconce translation: insertion of verbatim and latex blocks 15.2 s (accumulated time: 15.8)
+
+
+...doconce format used 16.8 s to translate the document (225 lines)
+
+output in astro2019.html
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+output in astro2019.html
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+*** error: figure file "figs/mvtSoleil" does not exist!
+translating doconce text in astro2019.do.txt to pdflatex
+open file with encoding utf-8
+figure file figs/mvtSoleil:
+    can use figs/mvtSoleil.pdf for format pdflatex
+output in astro2019.tex
+translating doconce text in astro2019.do.txt to html
+open file with encoding utf-8
+figure file figs/mvtSoleil:
+    can use figs/mvtSoleil.png for format html
+output in astro2019.html

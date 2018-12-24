@@ -1,0 +1,160 @@
+TITLE: Tuteriel: Apprendre l'Astronomie avec Python
+AUTHOR: Ahmed Ammar {copyright|CC BY} Email:ahmed.ammar@fst.utm.tn at Faculté des Sciences, Université de Tunis El Manar et Société Astronomique de Tunisie.
+DATE: 2019
+
+TOC: on
+
+!split
+======= Introduction =======
+
+!split
+======= Importation de module et poste d'observateur =======
+Le module `PyEphem` est disponible sous le nom `ephem` qui doit être modifié lors de l’importation en `ep` pour raccourcir la programmation.
+!bc pycod
+from pylab import *
+import ephem as ep
+obs = ep.Observer()
+obs.lon = "18.56406"
+obs.lat = "53.09546"
+obs.elevation = 133.61
+!ec
+Les fonctions et structures du module `ephem ` sont appelées dans la fonction `ep.method()`. Tout d'abord, nous définissons la position de l'observateur (instrument d'observation). Pour ce faire, nous créons la structure appropriée (`structure = ep.Observer ()`) et remplissons ses champs (`structure.pole = valeur`).
+
+!split
+======= Objets et leur localisation =======
+Tous les objets astronomiques importants tels que le soleil, la lune, les planètes et leur lune peuvent être créés par la structure de `fonction = ep.nomObjet()`.
+!bc pycod
+# Objet
+lune = ep.Moon()
+!ec
+Après avoir créé l'objet, nous pouvons calculer son emplacement actuel en fournissant des informations sur l'observateur, situées dans la structure `obs` précédemment créée.
+!bc pycod
+lune.compute(obs)
+!ec
+Comme vous pouvez le constater, vous pouvez définir plusieurs observateurs différents et compter les coordonnées de l'objet sélectionné pour différents endroits de la Terre. Cela peut être utile lors de la planification de campagnes d’observation menées par différents observatoires.
+!split
+======= Lecture de coordonnées =======
+
+Les coordonnées calculées sont lues à partir des champs de structure d'objet.
+!bc pycod
+# coordonnées calculées
+print("Position actuelle de la Lune")
+print(" ------------------------------ ")
+# nous affichons l'ascension droite et la déclinaison
+print("RA : ", lune.ra)
+print("Dec : ", lune.dec)
+# nous affichons l'azimut et l'élévation
+print("--------------------------------")
+print("Az : ", lune.az)
+print ("El : " , lune.alt)
+!ec
+Les valeurs calculées sont données au format *_heures: minutes: secondes_* ou *_degrés: minutes: secondes d'arc_* pour l'heure actuelle UT sur époque 2000.
+!bc
+Position actuelle de la Lune
+ ------------------------------
+RA :  6:18:27.81
+Dec :  20:49:04.9
+--------------------------------
+Az :  197:06:32.3
+El :  56:50:39.8
+!ec
+!split
+======= Coordonnées en degrés =======
+Toutes les coordonnées calculées par les procédures du module PyEph sont données en _radians_. lorsque nous voulons écrire leur valeur, par exemple, les radians sont automatiquement convertis au format approprié (heures, minutes, secondes dans le cas d'une ascension droite ou degrés, minutes, secondes d'arc pour d'autres coordonnées).
+
+Si vous souhaitez utiliser des coordonnées calculées sur un graphique, il est utile de les convertir en degrés à l'aide de la fonction degrés.
+
+!bc pycod
+# coordonnées azimutales en degrés sous forme d'un nombre réel
+print(" -------------------------------- ")
+print("Az (deg): ", degrees(lune.az))
+print("El (deg): ", degrees(lune.alt))
+!ec
+Azimut et élévation en degrés:
+!bc
+--------------------------------
+Az (deg):  207.85208210454263
+El (deg):  55.334644372169485
+!ec
+
+!split
+======= Villes et à tout moment =======
+Si nous ne connaissons pas la position exacte de l'observateur et que, simultanément, nous n'avons besoin que des valeurs estimées des coordonnées, par exemple. pour évaluer si un objet donné est visible, nous pouvons utiliser l'une des 122 villes dont les positions ont été enregistrées dans le module `PyEphem`.
+!bc pycod
+# OBSERVATEUR
+obs = ep.city("Paris")
+print("longitude : ", obs.lon)
+print ("latitude : ", obs.lat)
+!ec
+Nous pouvons attribuer n'importe quelle date et heure à chaque observateur:
+!bc pycod
+# PROPRE DATE ET HEURE TU
+obs.date = "2019/01/13 10:00:00"
+!ec
+Il faut seulement se rappeler que les chiffres de la date sont séparés par le signe `/` et l'heure par deux points.
+
+!split
+======= Mouvement de la journée solaire - le début du programme =======
+!bc pycod
+# IMPORTATION
+from pylab import *
+import ephem as ep
+# OBSERVATEUR
+obs = ep.city("Warsaw")
+# OBJET
+soleil = ep.Sun()
+# TEMPS
+tm = linspace(0 , 24 , 25)
+# POLOGNE PAYS POLONAIS
+pt = subplot(111 , polar= True )
+!ec
+!split
+======= Mouvement du soleil du jour - solstice d'été =======
+!bc pycod
+# FEUILLE PRINCIPALE
+for t in tm :
+    # changement de temps
+    obs.date = "2014/06/21 %02 d :00:00 "%t
+    # on calcule les coordonnées
+    sun.compute(obs)
+    # coordonnées azimutales - azimut en radians
+    az = float(repr(sun.az))
+    el = degrees(float(repr(sun.alt)))
+    # graphique - on change l'élévation par une distance zénithale
+    pt.plot([az], [90 - el], ls =" ", marker= " o ", c =" yellow ", \
+    markersize =10)
+    # heure locale UTC +2 heures en été
+    if el > 0:
+        pt.text (az, 90 - el, " %02 d "%(t+2), fontsize =10, \
+        ha = 'left' , va = 'center')
+!ec
+!split
+======= Mouvement du soleil du jour - solstice d'hiver =======
+!bc pycod
+    # TRANSFERT HIVERNAL - nous répétons les calculs "en décembre"
+    obs.date = "2014/12/22 %02d:00:00" % t
+    soleil.compute(obs)
+    az = float(repr(soleil.az))
+    el = degrees(float(repr(soleil.alt)))
+    pt.plot([az], [90 - el], ls ="", marker= "o", c ="blue", \
+    markersize =10)
+    # heure locale UTC +1 heures en hiver
+    if el > 0:
+        pt.text (az, 90 - el, "%02d"%(t+1), fontsize =10, \
+        ha = 'left' , va = 'center')
+#nous limitons la distance zénithale à 90 degrés - horizon
+plt.set_rmax(90.0)
+# nous plaçons le nord en haut du graphique
+plt.set_theta_zero_location("N")
+plt.savefig("figs/mvtSoleil.pdf"); plt.savefig ("figs/mvtSoleil.png")
+plt.show ()
+!ec
+
+!split
+======= Mouvement du Soleil à la lumière du jour - dessin =======
+FIGURE: [figs/mvtSoleil]
+Le programme vaut également la peine d’ajouter une nouvelle ville, par exemple. `obs = ep.city("Cairo")`
+
+!split
+======= Mouvement rétrograde de Mars - début du programme =======
+Dès l'Antiquité, il a été remarqué que le mouvement de certains objets dans le ciel est d'un caractère différent du trafic de la majorité. étoiles fixes. De tels objets ont été appelés étoiles brillantes ou édits (grec: planètes). Aujourd'hui, nous savons que errer sur les planètes a pour effet de placer leur mouvement en même temps que le mouvement de la Terre autour du Soleil. Nous pouvons retracer ce phénomène sur l'exemple de Mars.

@@ -1,0 +1,157 @@
+<div class="highlight" style="background: #eeeedd"><pre style="line-height: 125%"><span></span><span style="color: #000080; font-weight: bold">TITLE: Tuteriel: Apprendre l&#39;Astronomie avec Python</span>
+<span style="color: #000080; font-weight: bold">AUTHOR:</span> Ahmed Ammar {copyright|CC BY} Email:ahmed.ammar@fst.utm.tn at Faculté des Sciences, Université de Tunis El Manar et Société Astronomique de Tunisie.
+<span style="color: #000080; font-weight: bold">DATE:</span> 2019
+
+<span style="color: #000080; font-weight: bold">TOC:</span> on
+
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Introduction =======</span>
+
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Importation de module et poste d&#39;observateur =======</span>
+Le module `PyEphem` est disponible sous le nom `ephem` qui doit être modifié lors de l’importation en `ep` pour raccourcir la programmation.
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+from pylab import *
+import ephem as ep
+obs = ep.Observer()
+obs.lon = &quot;18.56406&quot;
+obs.lat = &quot;53.09546&quot;
+obs.elevation = 133.61
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Les fonctions et structures du module `ephem ` sont appelées dans la fonction `ep.method()`. Tout d&#39;abord, nous définissons la position de l&#39;observateur (instrument d&#39;observation). Pour ce faire, nous créons la structure appropriée (`structure = ep.Observer ()`) et remplissons ses champs (`structure.pole = valeur`).
+
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Objets et leur localisation =======</span>
+Tous les objets astronomiques importants tels que le soleil, la lune, les planètes et leur lune peuvent être créés par la structure de `fonction = ep.nomObjet()`.
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># Objet</span>
+lune = ep.Moon()
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Après avoir créé l&#39;objet, nous pouvons calculer son emplacement actuel en fournissant des informations sur l&#39;observateur, situées dans la structure `obs` précédemment créée.
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+lune.compute(obs)
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Comme vous pouvez le constater, vous pouvez définir plusieurs observateurs différents et compter les coordonnées de l&#39;objet sélectionné pour différents endroits de la Terre. Cela peut être utile lors de la planification de campagnes d’observation menées par différents observatoires.
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Lecture de coordonnées =======</span>
+
+Les coordonnées calculées sont lues à partir des champs de structure d&#39;objet.
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># coordonnées calculées</span>
+print(&quot;Position actuelle de la Lune&quot;)
+print(&quot; ------------------------------ &quot;)
+<span style="color: #228B22"># nous affichons l&#39;ascension droite et la déclinaison</span>
+print(&quot;RA : &quot;, lune.ra)
+print(&quot;Dec : &quot;, lune.dec)
+<span style="color: #228B22"># nous affichons l&#39;azimut et l&#39;élévation</span>
+print(&quot;--------------------------------&quot;)
+print(&quot;Az : &quot;, lune.az)
+print (&quot;El : &quot; , lune.alt)
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Les valeurs calculées sont données au format *_heures: minutes: secondes_* ou *_degrés: minutes: secondes d&#39;arc_* pour l&#39;heure actuelle UT sur époque 2000.
+<span style="color: #8B008B; font-weight: bold">!bc</span>
+Position actuelle de la Lune
+ ------------------------------
+RA :  6:18:27.81
+Dec :  20:49:04.9
+--------------------------------
+Az :  197:06:32.3
+El :  56:50:39.8
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Coordonnées en degrés =======</span>
+Toutes les coordonnées calculées par les procédures du module PyEph sont données en _radians_. lorsque nous voulons écrire leur valeur, par exemple, les radians sont automatiquement convertis au format approprié (heures, minutes, secondes dans le cas d&#39;une ascension droite ou degrés, minutes, secondes d&#39;arc pour d&#39;autres coordonnées).
+
+Si vous souhaitez utiliser des coordonnées calculées sur un graphique, il est utile de les convertir en degrés à l&#39;aide de la fonction degrés.
+
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># coordonnées azimutales en degrés sous forme d&#39;un nombre réel</span>
+print(&quot; -------------------------------- &quot;)
+print(&quot;Az (deg): &quot;, degrees(lune.az))
+print(&quot;El (deg): &quot;, degrees(lune.alt))
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Azimut et élévation en degrés:
+<span style="color: #8B008B; font-weight: bold">!bc</span>
+--------------------------------
+Az (deg):  207.85208210454263
+El (deg):  55.334644372169485
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Villes et à tout moment =======</span>
+Si nous ne connaissons pas la position exacte de l&#39;observateur et que, simultanément, nous n&#39;avons besoin que des valeurs estimées des coordonnées, par exemple. pour évaluer si un objet donné est visible, nous pouvons utiliser l&#39;une des 122 villes dont les positions ont été enregistrées dans le module `PyEphem`.
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># OBSERVATEUR</span>
+obs = ep.city(&quot;Paris&quot;)
+print(&quot;longitude : &quot;, obs.lon)
+print (&quot;latitude : &quot;, obs.lat)
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Nous pouvons attribuer n&#39;importe quelle date et heure à chaque observateur:
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># PROPRE DATE ET HEURE TU</span>
+obs.date = &quot;2019/01/13 10:00:00&quot;
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+Il faut seulement se rappeler que les chiffres de la date sont séparés par le signe `/` et l&#39;heure par deux points.
+
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Mouvement de la journée solaire - le début du programme =======</span>
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># IMPORTATION</span>
+from pylab import *
+import ephem as ep
+<span style="color: #228B22"># OBSERVATEUR</span>
+obs = ep.city(&quot;Warsaw&quot;)
+<span style="color: #228B22"># OBJET</span>
+soleil = ep.Sun()
+<span style="color: #228B22"># TEMPS</span>
+tm = linspace(0 , 24 , 25)
+<span style="color: #228B22"># POLOGNE PAYS POLONAIS</span>
+pt = subplot(111 , polar= True )
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Mouvement du soleil du jour - solstice d&#39;été =======</span>
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+<span style="color: #228B22"># FEUILLE PRINCIPALE</span>
+for t in tm :
+    # changement de temps
+    obs.date = &quot;2014/06/21 %02 d :00:00 &quot;%t
+    # on calcule les coordonnées
+    sun.compute(obs)
+    # coordonnées azimutales - azimut en radians
+    az = float(repr(sun.az))
+    el = degrees(float(repr(sun.alt)))
+    # graphique - on change l&#39;élévation par une distance zénithale
+    pt.plot([az], [90 - el], ls =&quot; &quot;, marker= &quot; o &quot;, c =&quot; yellow &quot;, \
+    markersize =10)
+    # heure locale UTC +2 heures en été
+    if el &gt; 0:
+        pt.text (az, 90 - el, &quot; %02 d &quot;%(t+2), fontsize =10, \
+        ha = &#39;left&#39; , va = &#39;center&#39;)
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Mouvement du soleil du jour - solstice d&#39;hiver =======</span>
+<span style="color: #8B008B; font-weight: bold">!bc</span> pycod
+    # TRANSFERT HIVERNAL - nous répétons les calculs &quot;en décembre&quot;
+    obs.date = &quot;2014/12/22 %02d:00:00&quot; % t
+    soleil.compute(obs)
+    az = float(repr(soleil.az))
+    el = degrees(float(repr(soleil.alt)))
+    pt.plot([az], [90 - el], ls =&quot;&quot;, marker= &quot;o&quot;, c =&quot;blue&quot;, \
+    markersize =10)
+    # heure locale UTC +1 heures en hiver
+    if el &gt; 0:
+        pt.text (az, 90 - el, &quot;%02d&quot;%(t+1), fontsize =10, \
+        ha = &#39;left&#39; , va = &#39;center&#39;)
+<span style="color: #228B22">#nous limitons la distance zénithale à 90 degrés - horizon</span>
+plt.set_rmax(90.0)
+<span style="color: #228B22"># nous plaçons le nord en haut du graphique</span>
+plt.set_theta_zero_location(&quot;N&quot;)
+plt.savefig(&quot;figs/mvtSoleil.pdf&quot;); plt.savefig (&quot;figs/mvtSoleil.png&quot;)
+plt.show ()
+<span style="color: #8B008B; font-weight: bold">!ec</span>
+
+<span style="color: #8B008B; font-weight: bold">!split</span>
+<span style="color: #000080; font-weight: bold">======= Mouvement du Soleil à la lumière du jour - dessin =======</span>
+<span style="color: #658b00">FIGURE: [figs/mvtSoleil] </span>
+Le programme vaut également la peine d’ajouter une nouvelle ville, par exemple. `obs = ep.city(&quot;Cairo&quot;)`
+</pre></div>
