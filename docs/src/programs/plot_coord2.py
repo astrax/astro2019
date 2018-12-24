@@ -8,18 +8,20 @@ Created on Sun Dec 23 21:14:48 2018
 
 # IMPORTATION
 from pylab import *
+plt.style.use('dark_background')
+#plt.style.use('ggplot')
 import ephem as ep
 # deux fonctions supplémentaires du module datetime sont nécessaires
 from datetime import datetime , timedelta
 
 # OBSERVATEUR
-obs = ep.city("Warsaw")
+obs = ep.city("Paris")
 # MARS
 mr = ep.Mars()
-
+plt.figure(figsize=(10, 5))
 for i in range (0 , 181):
     # nous changeons la date d'un jour pendant six mois
-    dt = datetime (2014, 1, 1) + timedelta(i)
+    dt = datetime (2018, 5, 1) + timedelta(i)
     ds = "%d/%02d/%02d"%(dt.year, dt.month, dt.day)
     print(" jour de l'année: ", i +1 , ds)
     # fixer la date de l'observateur et calculer les coordonnées
@@ -28,7 +30,7 @@ for i in range (0 , 181):
     ra = degrees(float(repr(mr.ra)))
     de = degrees(float(repr(mr.dec)))
     # on dessine des objets
-    plot([ra], [de], c = "orange", marker = "o")
+    plot([ra], [de], c = "red", marker = "o", alpha =.5)
     # nous ajoutons une description de la date en moyenne tous les 10 jours
     if (dt.day % 10) == 0: text(ra, de, ds, fontsize =8)
 # conversion RA donné en degrés
@@ -48,11 +50,12 @@ def DEd2dms (x , loc ):
     return " %02dd%02dm%02ds"%(d, m, s)
 
 # description du dessin
-xlabel(r"$\alpha$")
+
+xlabel("ascension droite " + r"$\alpha$")
 gca().xaxis.set_major_formatter(FuncFormatter(RAd2hms))
-ylabel(r"$\delta$")
+ylabel(" déclinaison " + r"$\delta$")
 gca().yaxis.set_major_formatter(FuncFormatter(DEd2dms))
-title("Mouvement retrograde de Mars en 2014")
+title("Mouvement retrograde de Mars - 6 mois en 2018")
 
 savefig("../figs/retrogradeMars.pdf"); savefig("../figs/retrogradeMars.png")
 show()
