@@ -15,7 +15,9 @@ import ephem as ep
 from datetime import datetime , timedelta
 
 # OBSERVATEUR
-obs = ep.city("Paris")
+#obs = ep.city("Paris")
+obs = ep.Observer()
+obs.lon, obs.lat, obs.elev = '10.08', '36.4', 100.0 # COORDONNÉES DE TUNIS
 # MARS
 mr = ep.Mars()
 plt.figure(figsize=(10, 5))
