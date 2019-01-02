@@ -1,0 +1,47 @@
+@import "/blog/css/blogpages.css";
+
+/* Basic page colors, in a blue theme */
+
+body {
+  background: #c0f0fa;
+  background-image: url('/blog/css/patterns/marble-blue.jpg');
+  background-repeat: repeat;
+  color: black;
+}
+
+a { color: blue; }
+a:visited { color: purple; }
+a:hover { background: #9ee; }
+
+#blogtitle {
+  background-color: #379;
+  color: #eff;
+}
+
+div.story, #rightsidebar {
+  background: #f0ffff;
+}
+
+pre {
+  background: #f2f2f2;
+  font-style: fixed;
+  /*
+  background: #222;
+  color: white;
+   */
+}
+/*
+pre a { color: #ff0; }
+pre a:visited { color: #fda; }
+pre a:hover { background: #444; }
+*/
+
+code {
+  /*background: #fefef9;*/
+  background: #f2f2f2;
+}
+
+/* Calendar stuff */
+td.blosxomCalendarBlogged { border: 1px outset; background: #ffe; font-weight: bold; }
+td.blosxomCalendarBlogged:hover { background: #9ee; }
+td.blosxomCalendarSpecificDay { background: #ebf; }

@@ -1,0 +1,32 @@
+@import "blogpages.css";
+
+/* Basic page colors, in a tan theme */
+
+body {
+  background: #e1c286;
+  background-image: url('/blog/css/patterns/marble-tan.jpg');
+  background-repeat: repeat;
+  color: black;
+}
+
+a { color: blue; }
+a:visited { color: purple; }
+a:hover { background: #9ee; }
+
+#blogtitle {
+  background-color: #b78107;
+  color: #eff;
+}
+
+div.story, #rightsidebar {
+  background: #fffbf2;
+}
+
+pre, code {
+  background: #f2f0e0;
+  color: black;
+}
+
+/* Calendar stuff */
+td.blosxomCalendarBlogged { background: #cca; }
+td.blosxomCalendarSpecificDay { background: #ebf; }
