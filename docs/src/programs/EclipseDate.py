@@ -12,6 +12,7 @@ import ephem as ep
 # OBSERVATEUR
 obs = ep.Observer()
 obs.lon, obs.lat, obs.elev = '10.08', '36.4', 100.0
+obs.name = "SAT-TUNIS"
 # OBJETS
 soleil = ep.Sun()
 lune = ep.Moon()
@@ -19,11 +20,11 @@ lune = ep.Moon()
 dt = ep.hour
 # temps initial
 #ts = ep.now()
-ts=ep.Date("2015-01-01 00:00:00")
+ts=ep.Date("2019-01-01 00:00:00")
 # heure actuelle
 tm = ts
 
-for i in range (365*24*20):
+for i in range (365*24*10):
     # nous fixons l'heure actuelle
     obs.date = tm
     # nous calculons les coordonnées

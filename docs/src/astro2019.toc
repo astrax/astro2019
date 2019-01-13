@@ -1,11 +1,43 @@
 \babel@toc {french}{}
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
-\contentsline {section}{\numberline {2}Importation de module et poste d'observateur}{2}{section.2}
-\contentsline {section}{\numberline {3}Objets et leur localisation}{2}{section.3}
-\contentsline {section}{\numberline {4}Lecture de coordonn\IeC {\'e}es}{2}{section.4}
-\contentsline {section}{\numberline {5}Coordonn\IeC {\'e}es en degr\IeC {\'e}s}{3}{section.5}
-\contentsline {section}{\numberline {6}Villes et \IeC {\`a} tout moment}{3}{section.6}
-\contentsline {section}{\numberline {7}Mouvement de la journ\IeC {\'e}e solaire - le d\IeC {\'e}but du programme}{4}{section.7}
-\contentsline {section}{\numberline {8}Mouvement du soleil du jour - solstice d'\IeC {\'e}t\IeC {\'e}}{4}{section.8}
-\contentsline {section}{\numberline {9}Mouvement du soleil du jour - solstice d'hiver}{5}{section.9}
-\contentsline {section}{\numberline {10}Mouvement du Soleil \IeC {\`a} la lumi\IeC {\`e}re du jour - dessin}{5}{section.10}
+\contentsline {section}{\numberline {1}Python}{2}{section.1}
+\contentsline {section}{\numberline {2}Installation d'un environnement Python scientifique}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Installation sur ordinateur}{3}{subsection.2.1}
+\contentsline {paragraph}{Qu\IeC {\textquoteright }est ce que Anaconda ?}{3}{section*.2}
+\contentsline {paragraph}{Pr\IeC {\'e}parer la formation: t\IeC {\'e}l\IeC {\'e}chargement d\IeC {\textquoteright }Anaconda.}{4}{section*.3}
+\contentsline {subsection}{\numberline {2.2}Installation sur smartphone}{4}{subsection.2.2}
+\contentsline {paragraph}{Pydroid 3 - IDE \IeC {\'e}ducatif pour Python 3.}{4}{section*.4}
+\contentsline {paragraph}{Installer et utiliser Pydroid 3 sur son smartphone:}{5}{section*.5}
+\contentsline {section}{\numberline {3}PyEphem}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Installation}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Importation de module et lieu de l'observateur}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Objets c\IeC {\'e}lestes et leur localisation}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Lecture de coordonn\IeC {\'e}es}{8}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Coordonn\IeC {\'e}es en degr\IeC {\'e}s}{8}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Date et heure}{9}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Mouvement apparent du Soleil - le d\IeC {\'e}but du programme}{9}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Mouvement apparent du Soleil - solstice d'\IeC {\'e}t\IeC {\'e}}{9}{subsection.3.8}
+\contentsline {subsection}{\numberline {3.9}Mouvement apparent du Soleil - solstice d'hiver}{9}{subsection.3.9}
+\contentsline {subsection}{\numberline {3.10}Mouvement apparent du Soleil - le graphique}{10}{subsection.3.10}
+\contentsline {subsection}{\numberline {3.11}Mouvement r\IeC {\'e}trograde de Mars}{10}{subsection.3.11}
+\contentsline {subsection}{\numberline {3.12}Mouvement r\IeC {\'e}trograde de Mars - d\IeC {\'e}but du programme}{11}{subsection.3.12}
+\contentsline {subsection}{\numberline {3.13}Mouvement r\IeC {\'e}trograde de Mars - boucle principale}{11}{subsection.3.13}
+\contentsline {subsection}{\numberline {3.14}Mouvement r\IeC {\'e}trograde de Mars - le graphique}{12}{subsection.3.14}
+\contentsline {subsection}{\numberline {3.15}Mouvement r\IeC {\'e}trograde de Mars - changement du texte des axes}{12}{subsection.3.15}
+\contentsline {subsection}{\numberline {3.16}Mouvement r\IeC {\'e}trograde de Mars - le graphique}{13}{subsection.3.16}
+\contentsline {subsection}{\numberline {3.17}Mouvement des lunes galil\IeC {\'e}ennes - d\IeC {\'e}but du programme}{13}{subsection.3.17}
+\contentsline {subsection}{\numberline {3.18}Mouvement des lunes galil\IeC {\'e}ennes - boucle principale}{14}{subsection.3.18}
+\contentsline {subsection}{\numberline {3.19}Mouvement des lunes galil\IeC {\'e}ennes - le graphique}{14}{subsection.3.19}
+\contentsline {subsection}{\numberline {3.20}Mouvement des lunes galil\IeC {\'e}ennes - le graphique}{15}{subsection.3.20}
+\contentsline {subsection}{\numberline {3.21}D\IeC {\'e}termination de l'\IeC {\'e}clipse solaire - d\IeC {\'e}but du programme}{15}{subsection.3.21}
+\contentsline {subsection}{\numberline {3.22}D\IeC {\'e}termination de l'\IeC {\'e}clipse solaire - boucle principale}{15}{subsection.3.22}
+\contentsline {subsection}{\numberline {3.23}D\IeC {\'e}termination de l'\IeC {\'e}clipse solaire -}{16}{subsection.3.23}
+\contentsline {subsection}{\numberline {3.24}Phases d'une \IeC {\'e}clipse solaire - d\IeC {\'e}but du programme}{16}{subsection.3.24}
+\contentsline {subsection}{\numberline {3.25}Phases d'une \IeC {\'e}clipse solaire - suite}{17}{subsection.3.25}
+\contentsline {subsection}{\numberline {3.26}Phases d'une \IeC {\'e}clipse solaire - boucle principale}{17}{subsection.3.26}
+\contentsline {subsection}{\numberline {3.27}Phases d'une \IeC {\'e}clipse solaire - le graphique}{18}{subsection.3.27}
+\contentsline {subsection}{\numberline {3.28}Conjonction de la lune et des plan\IeC {\`e}tes}{18}{subsection.3.28}
+\contentsline {subsection}{\numberline {3.29}Conjonction de la lune et des plan\IeC {\`e}tes - boucle principale}{19}{subsection.3.29}
+\contentsline {subsection}{\numberline {3.30}Conjonction de la lune et des plan\IeC {\`e}tes - boucle principale (suite)}{19}{subsection.3.30}
+\contentsline {section}{\numberline {4}Cartopy}{20}{section.4}
+\contentsline {subsection}{\numberline {4.1}Graphique}{20}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Application: Eclipse totale du Soleil en 2027}{21}{subsection.4.2}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} Objets}
+\PYG{c+c1}{\PYGZsh{} nous créons une structure dans laquelle les données seront stockées}
+\PYG{n}{lune} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Moon}\PYG{p}{()}
+\end{Verbatim}

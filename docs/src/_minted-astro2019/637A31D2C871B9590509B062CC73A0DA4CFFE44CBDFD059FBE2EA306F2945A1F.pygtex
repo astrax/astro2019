@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{k+kn}{from} \PYG{n+nn}{pylab} \PYG{k+kn}{import} \PYG{o}{*}
-\PYG{k+kn}{import} \PYG{n+nn}{ephem} \PYG{k+kn}{as} \PYG{n+nn}{ep}
-\PYG{n}{obs} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Observer}\PYG{p}{()}
-\PYG{n}{obs}\PYG{o}{.}\PYG{n}{lon} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}18.56406\PYGZdq{}}
-\PYG{n}{obs}\PYG{o}{.}\PYG{n}{lat} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}53.09546\PYGZdq{}}
-\PYG{n}{obs}\PYG{o}{.}\PYG{n}{elevation} \PYG{o}{=} \PYG{l+m+mf}{133.61}
-\end{Verbatim}

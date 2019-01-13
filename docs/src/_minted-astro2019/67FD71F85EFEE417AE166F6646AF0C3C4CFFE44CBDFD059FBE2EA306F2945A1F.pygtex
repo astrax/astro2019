@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} Nous plaçons la Lune dans la figure}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{):}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}time UT: \PYGZdq{}}\PYG{p}{,} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Date}\PYG{p}{(}\PYG{n}{ts}\PYG{p}{))}
+    \PYG{n}{obs}\PYG{o}{.}\PYG{n}{date} \PYG{o}{=} \PYG{n}{ts}
+    \PYG{c+c1}{\PYGZsh{} nous calculons les coordonnées}
+    \PYG{n}{soleil}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{lune}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Nous calculons la différence de position}
+    \PYG{n}{az} \PYG{o}{=} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{soleil}\PYG{o}{.}\PYG{n}{az} \PYG{o}{\PYGZhy{}} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{az}\PYG{p}{)}
+    \PYG{n}{el} \PYG{o}{=} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{soleil}\PYG{o}{.}\PYG{n}{alt} \PYG{o}{\PYGZhy{}} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{alt}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} dessiner et la position réelle en empillements d\PYGZsq{}image de Lune; le Soleil estau centre}
+    \PYG{n}{kc} \PYG{o}{=} \PYG{n}{Circle}\PYG{p}{((}\PYG{n}{az} \PYG{p}{,} \PYG{n}{el}\PYG{p}{),} \PYG{n}{rl} \PYG{p}{,} \PYG{n}{facecolor} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}gray\PYGZdq{}}\PYG{p}{,}
+                \PYG{n}{edgecolor} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}black\PYGZdq{}}\PYG{p}{,} \PYG{n}{lw} \PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{alpha} \PYG{o}{=}\PYG{l+m+mf}{0.3}\PYG{p}{)}
+    \PYG{n}{pl}\PYG{o}{.}\PYG{n}{add\PYGZus{}artist}\PYG{p}{(}\PYG{n}{kc}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} augmenter le temps de 20 minutes}
+    \PYG{n}{ts} \PYG{o}{+=} \PYG{n}{dt}
+
+\PYG{n}{pl}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlim} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,} \PYG{l+m+mf}{1.0}\PYG{p}{)}
+\PYG{n}{pl}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylim} \PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.0}\PYG{p}{,} \PYG{l+m+mf}{1.0}\PYG{p}{)}
+\PYG{n}{pl}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}degré\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{pl}\PYG{o}{.} \PYG{n}{set\PYGZus{}ylabel} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}degré\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{()}
+\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}../figs/eclipse\PYGZus{}sol\PYGZus{}\PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{ts}\PYG{p}{)} \PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{}.pdf\PYGZdq{}}\PYG{p}{);} \PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}../figs/eclipse\PYGZus{}sol\PYGZus{}\PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{ts}\PYG{p}{)} \PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{}.png\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{show} \PYG{p}{()}
+\end{Verbatim}

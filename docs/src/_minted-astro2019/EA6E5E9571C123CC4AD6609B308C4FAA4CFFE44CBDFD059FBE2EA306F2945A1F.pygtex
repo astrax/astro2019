@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} BOUCLE PRINCIPAL DU PROGRAMME}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{l+m+mi}{365}\PYG{o}{*}\PYG{l+m+mi}{24}\PYG{o}{*}\PYG{l+m+mi}{1}\PYG{p}{):}
+\PYG{c+c1}{\PYGZsh{} nous fixons l\PYGZsq{}heure actuelle}
+    \PYG{n}{obs}\PYG{o}{.}\PYG{n}{date} \PYG{o}{=} \PYG{n}{tm}
+    \PYG{c+c1}{\PYGZsh{} nous calculons des coordonnées}
+    \PYG{n}{soleil}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{lune}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{venus}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{mars}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{jupiter}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} on calcule la séparation}
+    \PYG{n}{s1} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{separation}\PYG{p}{(}\PYG{n}{venus} \PYG{p}{,} \PYG{n}{lune}\PYG{p}{)}
+    \PYG{n}{s2} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{separation}\PYG{p}{(}\PYG{n}{mars} \PYG{p}{,} \PYG{n}{lune}\PYG{p}{)}
+    \PYG{n}{s3} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{separation}\PYG{p}{(}\PYG{n}{jupiter} \PYG{p}{,} \PYG{n}{lune}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} la séparation doit être inférieure à 5 degrés}
+    \PYG{k}{if} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{s1}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{5}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} nous vérifions si la lune sera au\PYGZhy{}dessus de l\PYGZsq{}horizon}
+        \PYG{c+c1}{\PYGZsh{} et si le soleil est au\PYGZhy{}dessous de l\PYGZsq{}horizon}
+        \PYG{k}{if} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{lune}\PYG{o}{.}\PYG{n}{alt}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{5.0} \PYG{o+ow}{and} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{soleil}\PYG{o}{.}\PYG{n}{alt}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{5.0}\PYG{p}{:}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}précédente nouvelle lune , UT :\PYGZdq{}}\PYG{p}{,} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{previous\PYGZus{}new\PYGZus{}moon}\PYG{p}{(}\PYG{n}{ep}\PYG{o}{.}\PYG{n}{Date}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{)))}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}Vénus \PYGZhy{} Lune , UT :\PYGZdq{}}\PYG{p}{,} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Date}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{)} \PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}séparation :\PYGZdq{}}\PYG{p}{,} \PYG{n}{s1}\PYG{p}{)}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}pos. Lune :\PYGZdq{}}\PYG{p}{,} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{az} \PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}El :\PYGZdq{}}\PYG{p}{,} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{alt}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} pas de temps \PYGZhy{} heure}
+\PYG{n}{dt} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{hour}
+\PYG{c+c1}{\PYGZsh{} temps initial}
+\PYG{n}{ts} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{now}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{} heure actuelle}
+\PYG{n}{tm} \PYG{o}{=} \PYG{n}{ts}
+\PYG{n}{N}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{l+m+mi}{24}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} nous calculons des valeurs y}
+    \PYG{n}{y}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{tm} \PYG{o}{\PYGZhy{}} \PYG{n}{ts}\PYG{p}{)}\PYG{o}{*}\PYG{l+m+mf}{24.0}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} nous calculons des valeurs x}
+    \PYG{n}{Io}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{)}
+    \PYG{n}{Eu}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{)}
+    \PYG{n}{Ga}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{)}
+    \PYG{n}{Ca}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} nous ajoutons des calculs aux tableaux}
+    \PYG{n}{xIo}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{Io}\PYG{o}{.}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{xEu}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{Eu}\PYG{o}{.}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{xGa}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{Ga}\PYG{o}{.}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{xCa}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{Ca}\PYG{o}{.}\PYG{n}{x}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} on augmente le temps d\PYGZsq{}une heure}
+    \PYG{n}{tm} \PYG{o}{+=} \PYG{n}{dt}
+\end{Verbatim}

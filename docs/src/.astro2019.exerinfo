@@ -1,0 +1,48 @@
+
+# Information about all exercises in the file astro2019.do.txt.
+# The information can be loaded into a Python list of dicts by
+#
+# f = open('.astro2019.exerinfo', 'r')
+# exer = eval(f.read())
+#
+[{'answer': '',
+  'chapter_exercise': None,
+  'chapter_no': None,
+  'chapter_title': None,
+  'chapter_type': None,
+  'closing_remarks': '',
+  'file': None,
+  'heading': '=====',
+  'hints': [],
+  'keywords': None,
+  'label': None,
+  'no': 1,
+  'solution': '',
+  'solution_file': None,
+  'subex': [],
+  'text': 'Changer les coordonnées géographiques. Cette fois dans une ville '
+          'proche de la région polaire et tracez le nouveau graphique. Que '
+          "s'est-il passé et comment décrivez-vous le phénomène?",
+  'title': 'Mouvement apparent du Soleil - région polaire',
+  'type': 'Exercise',
+  'type_visible': True},
+ {'answer': '',
+  'chapter_exercise': None,
+  'chapter_no': None,
+  'chapter_title': None,
+  'chapter_type': None,
+  'closing_remarks': '',
+  'file': None,
+  'heading': '=====',
+  'hints': [],
+  'keywords': None,
+  'label': None,
+  'no': 2,
+  'solution': '',
+  'solution_file': None,
+  'subex': [],
+  'text': 'Changez la période et trouvez le prochain mouvement rétrograde de '
+          'la planète Mars.',
+  'title': 'Quand le prochain mouvement rétrograde de la planète Mars?',
+  'type': 'Exercise',
+  'type_visible': True}]

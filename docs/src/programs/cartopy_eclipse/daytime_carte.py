@@ -15,9 +15,10 @@ from cartopy.feature.nightshade import Nightshade
 fig = plt.figure(figsize=(10, 5))
 ax = fig.add_subplot(1, 1, 1, projection=ccrs.PlateCarree())
 
-date = datetime.datetime(1999, 12, 31, 12)
+date = datetime.datetime(2019, 1, 13, 11)
 
 ax.set_title('Night time shading for {}'.format(date))
 ax.stock_img()
 ax.add_feature(Nightshade(date, alpha=0.2))
+plt.savefig("cartopy1.png"); plt.savefig("cartopy1.pdf")
 plt.show()

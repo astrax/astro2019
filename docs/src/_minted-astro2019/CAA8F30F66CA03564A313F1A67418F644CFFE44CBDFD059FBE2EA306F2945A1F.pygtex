@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} IMPORTATION}
+\PYG{k+kn}{import} \PYG{n+nn}{ephem} \PYG{k+kn}{as} \PYG{n+nn}{ep}
+\PYG{c+c1}{\PYGZsh{} NOUS CRÉONS LES OBJETS}
+\PYG{n}{Io} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Io}\PYG{p}{()}
+\PYG{n}{Eu} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Europa}\PYG{p}{()}
+\PYG{n}{Ga} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Ganymede}\PYG{p}{()}
+\PYG{n}{Ca} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Callisto}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{} Créons des tableaux vide pour}
+\PYG{c+c1}{\PYGZsh{} SAUVEGARDER LES COORDONNÉES}
+\PYG{n}{y} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{xIo} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{xEu} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{xGa} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{xCa} \PYG{o}{=} \PYG{p}{[]}
+\end{Verbatim}

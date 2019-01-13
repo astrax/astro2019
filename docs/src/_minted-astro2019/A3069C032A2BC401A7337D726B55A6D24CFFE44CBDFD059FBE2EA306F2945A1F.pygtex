@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} IMPORTATION}
+\PYG{k+kn}{from} \PYG{n+nn}{pylab} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{k+kn}{import} \PYG{n+nn}{ephem} \PYG{k+kn}{as} \PYG{n+nn}{ep}
+\PYG{c+c1}{\PYGZsh{} OBSERVATEUR}
+\PYG{n}{obs} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Observer}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{} TUNIS}
+\PYG{n}{obs}\PYG{o}{.}\PYG{n}{lon}\PYG{p}{,} \PYG{n}{obs}\PYG{o}{.}\PYG{n}{lat}\PYG{p}{,} \PYG{n}{obs}\PYG{o}{.}\PYG{n}{elev} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}10.08\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}36.4\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{100.0}
+\PYG{n}{obs}\PYG{o}{.}\PYG{n}{name}\PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}SAT\PYGZhy{}TUNIS\PYGZdq{}}
+\PYG{c+c1}{\PYGZsh{} CRÉER DES OBJETS}
+\PYG{n}{soleil} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Sun}\PYG{p}{()}
+\PYG{n}{lune} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Moon}\PYG{p}{()}
+\PYG{c+c1}{\PYGZsh{} intervalle de temps \PYGZhy{} 20 minutes}
+\PYG{n}{dt} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{hour}\PYG{o}{/}\PYG{l+m+mf}{4.}
+\PYG{c+c1}{\PYGZsh{} TEMPS DE DÉBUT}
+\PYG{n}{ts} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Date}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}2027\PYGZhy{}08\PYGZhy{}02 08:00:00\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{obs}\PYG{o}{.}\PYG{n}{date} \PYG{o}{=} \PYG{n}{ts}
+\PYG{c+c1}{\PYGZsh{} nous calculons les coordonnées}
+\PYG{n}{soleil}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+\PYG{n}{lune}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+\PYG{n}{rs} \PYG{o}{=} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{soleil}\PYG{o}{.}\PYG{n}{radius}\PYG{p}{)}
+\PYG{n}{rl} \PYG{o}{=} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{lune}\PYG{o}{.}\PYG{n}{radius} \PYG{p}{)}
+\end{Verbatim}

@@ -114,8 +114,8 @@ def plot_map(p, lons, lats, t0, alt=0, lat_0=69, lon_0=16):
 
 if __name__ == "__main__":
     for i in range(20):
-        p = get_eclipse(ephem.date((2015, 3, 20, 7, 30, 0)) + ephem.second * 900 * i,
+        p = get_eclipse(ephem.date((2027, 8, 2, 7, 00, 0)) + ephem.second * 900 * i,
                         lats=n.linspace(-90, 90, num=300), lons=n.linspace(-180, 180, num=300))
 
         plot_map(p, lats=n.linspace(-90, 90, num=300), lons=n.linspace(-180, 180, num=300),
-                 t0=ephem.date((2015, 3, 20, 7, 00, 0)) + ephem.second * 900 * i, alt=0, lat_0=45, lon_0=10)
+                 t0=ephem.date((2027, 8, 2, 7, 00, 0)) + ephem.second * 900 * i, alt=0, lat_0=45, lon_0=10)

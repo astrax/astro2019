@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kn}{from} \PYG{n+nn}{pylab} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{n}{fig1} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xIo}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{marker} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{,} \PYG{n}{label} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Io\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xEu}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{marker} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{,} \PYG{n}{label} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Europa\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xGa}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{marker} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{,} \PYG{n}{label} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Ganimedes\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plot}\PYG{p}{(}\PYG{n}{xCa}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{marker} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{,} \PYG{n}{label} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Callisto\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plot}\PYG{p}{(}\PYG{n}{zeros}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)),}\PYG{n}{y} \PYG{p}{,}\PYG{n}{marker} \PYG{o}{=}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}\PYGZdl{}\PYGZbs{}mathcircled\PYGZob{}J\PYGZcb{}\PYGZdl{}\PYGZdq{}}\PYG{p}{,} \PYG{n}{markersize} \PYG{o}{=}\PYG{l+m+mi}{15}\PYG{p}{,}
+     \PYG{n}{label} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Jupiter\PYGZdq{}}\PYG{p}{,}\PYG{n}{color} \PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}orange\PYGZdq{}}\PYG{p}{,} \PYG{n}{fillstyle}\PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}none\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}position par rapport à Jupiter\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Heures à partir de (}\PYG{l+s+si}{\PYGZpc{}s}\PYG{l+s+s2}{ TU)\PYGZdq{}}\PYG{o}{\PYGZpc{}} \PYG{n}{ts}\PYG{p}{)}
+\PYG{n}{ylim}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{)}
+\PYG{n}{title}\PYG{p}{(}\PYG{l+s+sa}{u}\PYG{l+s+s2}{\PYGZdq{}Mouvement des lunes galiléennes\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{grid}\PYG{p}{()}
+\PYG{n}{legend}\PYG{p}{(}\PYG{n}{loc} \PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{n}{tight\PYGZus{}layout}\PYG{p}{()}
+\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}../figs/mvtjov.pdf\PYGZdq{}}\PYG{p}{);} \PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}../figs/mvtjov.png\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}

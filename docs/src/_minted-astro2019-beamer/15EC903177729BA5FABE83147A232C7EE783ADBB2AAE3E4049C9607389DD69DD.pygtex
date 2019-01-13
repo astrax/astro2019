@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kn}{from} \PYG{n+nn}{pylab} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{))}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{l+m+mi}{0} \PYG{p}{,} \PYG{l+m+mi}{181}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} nous changeons la date d\PYGZsq{}un jour pendant six mois}
+    \PYG{n}{dt} \PYG{o}{=} \PYG{n}{datetime} \PYG{p}{(}\PYG{l+m+mi}{2018}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{+} \PYG{n}{timedelta}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+    \PYG{n}{ds} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZpc{}d}\PYG{l+s+s2}{/}\PYG{l+s+si}{\PYGZpc{}02d}\PYG{l+s+s2}{/}\PYG{l+s+si}{\PYGZpc{}02d}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{\PYGZpc{}}\PYG{p}{(}\PYG{n}{dt}\PYG{o}{.}\PYG{n}{year}\PYG{p}{,} \PYG{n}{dt}\PYG{o}{.}\PYG{n}{month}\PYG{p}{,} \PYG{n}{dt}\PYG{o}{.}\PYG{n}{day}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{} jour de l\PYGZsq{}année: \PYGZdq{}}\PYG{p}{,} \PYG{n}{i} \PYG{o}{+}\PYG{l+m+mi}{1} \PYG{p}{,} \PYG{n}{ds}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} fixer la date de l\PYGZsq{}observateur et calculer les coordonnées}
+    \PYG{n}{obs}\PYG{o}{.}\PYG{n}{date} \PYG{o}{=} \PYG{n}{ds}
+    \PYG{n}{mr}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{ra} \PYG{o}{=} \PYG{n}{degrees}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n+nb}{repr}\PYG{p}{(}\PYG{n}{mr}\PYG{o}{.}\PYG{n}{ra}\PYG{p}{)))}
+    \PYG{n}{de} \PYG{o}{=} \PYG{n}{degrees}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n+nb}{repr}\PYG{p}{(}\PYG{n}{mr}\PYG{o}{.}\PYG{n}{dec}\PYG{p}{)))}
+    \PYG{c+c1}{\PYGZsh{} on dessine des objets}
+    \PYG{n}{plot}\PYG{p}{([}\PYG{n}{ra}\PYG{p}{],} \PYG{p}{[}\PYG{n}{de}\PYG{p}{],} \PYG{n}{c} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}red\PYGZdq{}}\PYG{p}{,} \PYG{n}{marker} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}}\PYG{p}{,} \PYG{n}{alpha} \PYG{o}{=.}\PYG{l+m+mi}{5}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} nous ajoutons une description de la date en moyenne tous les 10 jours}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{dt}\PYG{o}{.}\PYG{n}{day} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{10}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:} \PYG{n}{text}\PYG{p}{(}\PYG{n}{ra}\PYG{p}{,} \PYG{n}{de}\PYG{p}{,} \PYG{n}{ds}\PYG{p}{,} \PYG{n}{fontsize} \PYG{o}{=}\PYG{l+m+mi}{8}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} description du graphique}
+\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}ascension droite \PYGZdq{}} \PYG{o}{+} \PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}\PYGZdl{}\PYGZbs{}alpha\PYGZdl{} (deg)\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{} déclinaison \PYGZdq{}} \PYG{o}{+} \PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}\PYGZdl{}\PYGZbs{}delta\PYGZdl{} (deg)\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mouvement retrograde de Mars \PYGZhy{} 6 mois en 2018 }\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{+}\PYG{n}{obs}\PYG{o}{.}\PYG{n}{name}\PYG{p}{,} \PYG{n}{fontweight}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}bold\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}../figs/retrogradeMars.pdf\PYGZdq{}}\PYG{p}{);} \PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}../figs/retrogradeMars.png\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}

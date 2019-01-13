@@ -43,10 +43,28 @@ system makeindex $name
 pdflatex -shell-escape $name
 pdflatex -shell-escape $name
 
+# LaTeX Beamer slides
+beamertheme=red_shadow
+system doconce format pdflatex $name --latex_title_layout=beamer --latex_admon_title_no_period -DBEAMER
+editfix ${name}.p.tex
+system doconce ptex2tex $name envir=minted
+system doconce slides_beamer $name --beamer_slide_theme=$beamertheme
+cp $name.tex ${name}-beamer.tex
+system common_replacements ${name}-beamer.tex
+system pdflatex -shell-escape ${name}-beamer
+system pdflatex -shell-escape ${name}-beamer
+
+
 system doconce format html $name --html_style=bootstrap $options --latex_admon=grayicon
 common_replacements $name.html
 
+# Jupyter notebook
+doconce format ipynb $name
+common_replacements $name.ipynb
 # Publish
-mkdir ../../pub/$name
-dest=../../pub/$name
-cp -r $name.pdf $name.html $dest
+# Publish
+dest=../pub/$name
+if [ ! -d $dest ]; then
+mkdir $dest
+fi
+cp -r *.pdf *.html figs $dest

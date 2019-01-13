@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range} \PYG{p}{(}\PYG{l+m+mi}{365}\PYG{o}{*}\PYG{l+m+mi}{24}\PYG{o}{*}\PYG{l+m+mi}{10}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} nous fixons l\PYGZsq{}heure actuelle}
+    \PYG{n}{obs}\PYG{o}{.}\PYG{n}{date} \PYG{o}{=} \PYG{n}{tm}
+    \PYG{c+c1}{\PYGZsh{} nous calculons les coordonnées}
+    \PYG{n}{soleil}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{n}{lune}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} rayons}
+    \PYG{n}{rs} \PYG{o}{=} \PYG{n}{soleil}\PYG{o}{.}\PYG{n}{radius}
+    \PYG{n}{rl} \PYG{o}{=} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{radius}
+    \PYG{c+c1}{\PYGZsh{} on calcule la distance angulaire}
+    \PYG{n}{sp} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{separation}\PYG{p}{(}\PYG{n}{soleil}\PYG{p}{,} \PYG{n}{lune}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} on vérifie si la somme des rayons sera inférieure}
+    \PYG{c+c1}{\PYGZsh{} à la séparation calculée}
+    \PYG{k}{if} \PYG{n}{sp} \PYG{o}{\PYGZlt{}} \PYG{n}{rs} \PYG{o}{+} \PYG{n}{rl} \PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} nous vérifions si le soleil sera au\PYGZhy{}dessus de l\PYGZsq{}horizon}
+        \PYG{k}{if} \PYG{n}{soleil}\PYG{o}{.}\PYG{n}{alt} \PYG{o}{\PYGZgt{}} \PYG{l+m+mf}{0.0}\PYG{p}{:}
+            \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Date de l\PYGZsq{}eclipse UT: \PYGZdq{}}\PYG{p}{,} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{Date}\PYG{p}{(}\PYG{n}{tm}\PYG{p}{),} \PYG{l+s+s2}{\PYGZdq{}Separation: \PYGZdq{}}\PYG{p}{,} \PYG{n}{sp}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} on augmente le temps par pas d\PYGZsq{}une heure}
+    \PYG{n}{tm} \PYG{o}{+=} \PYG{n}{dt}
+\end{Verbatim}

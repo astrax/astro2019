@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} coordonnées azimutales en degrés sous forme d\PYGZsq{}un nombre réel}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} \PYGZdq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Az (deg): \PYGZdq{}}\PYG{p}{,} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{lune}\PYG{o}{.}\PYG{n}{az}\PYG{p}{))}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}El (deg): \PYGZdq{}}\PYG{p}{,} \PYG{n}{degrees}\PYG{p}{(}\PYG{n}{lune}\PYG{o}{.}\PYG{n}{alt}\PYG{p}{))}
+\end{Verbatim}

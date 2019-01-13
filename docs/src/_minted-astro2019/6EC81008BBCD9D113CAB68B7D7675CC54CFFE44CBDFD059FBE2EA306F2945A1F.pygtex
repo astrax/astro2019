@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{c+c1}{\PYGZsh{} OBSERVATEUR}
-\PYG{n}{obs} \PYG{o}{=} \PYG{n}{ep}\PYG{o}{.}\PYG{n}{city}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Paris\PYGZdq{}}\PYG{p}{)}
-\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}longitude : \PYGZdq{}}\PYG{p}{,} \PYG{n}{obs}\PYG{o}{.}\PYG{n}{lon}\PYG{p}{)}
-\PYG{k}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}latitude : \PYGZdq{}}\PYG{p}{,} \PYG{n}{obs}\PYG{o}{.}\PYG{n}{lat}\PYG{p}{)}
-\end{Verbatim}

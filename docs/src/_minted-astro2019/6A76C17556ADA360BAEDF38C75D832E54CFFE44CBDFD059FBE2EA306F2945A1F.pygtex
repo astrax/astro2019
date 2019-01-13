@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} CALCULS}
+\PYG{c+c1}{\PYGZsh{} on calcule la position actuelle de l\PYGZsq{}objet}
+\PYG{c+c1}{\PYGZsh{} pour l\PYGZsq{}observateur créé plus tôt}
+\PYG{n}{lune}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}\PYG{n}{obs}\PYG{p}{)}
+\end{Verbatim}

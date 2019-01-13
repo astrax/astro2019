@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{\PYGZsh{} coordonnées calculées}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Position actuelle de la Lune\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} \PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} nous affichons l\PYGZsq{}ascension droite et la déclinaison}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}RA : \PYGZdq{}}\PYG{p}{,} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{ra}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Dec : \PYGZdq{}}\PYG{p}{,} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{dec}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} nous affichons l\PYGZsq{}azimut et l\PYGZsq{}élévation}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Az : \PYGZdq{}}\PYG{p}{,} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{az}\PYG{p}{)}
+\PYG{k}{print} \PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}El : \PYGZdq{}} \PYG{p}{,} \PYG{n}{lune}\PYG{o}{.}\PYG{n}{alt}\PYG{p}{)}
+\end{Verbatim}

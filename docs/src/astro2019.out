@@ -1,10 +1,38 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Importation de module et poste d'observateur}{}% 2
-\BOOKMARK [1][-]{section.3}{Objets et leur localisation}{}% 3
-\BOOKMARK [1][-]{section.4}{Lecture de coordonn\351es}{}% 4
-\BOOKMARK [1][-]{section.5}{Coordonn\351es en degr\351s}{}% 5
-\BOOKMARK [1][-]{section.6}{Villes et \340 tout moment}{}% 6
-\BOOKMARK [1][-]{section.7}{Mouvement de la journ\351e solaire - le d\351but du programme}{}% 7
-\BOOKMARK [1][-]{section.8}{Mouvement du soleil du jour - solstice d'\351t\351}{}% 8
-\BOOKMARK [1][-]{section.9}{Mouvement du soleil du jour - solstice d'hiver}{}% 9
-\BOOKMARK [1][-]{section.10}{Mouvement du Soleil \340 la lumi\350re du jour - dessin}{}% 10
+\BOOKMARK [1][-]{section.1}{Python}{}% 1
+\BOOKMARK [1][-]{section.2}{Installation d'un environnement Python scientifique}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Installation sur ordinateur}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Installation sur smartphone}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{PyEphem}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Installation}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Importation de module et lieu de l'observateur}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Objets c\351lestes et leur localisation}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Lecture de coordonn\351es}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{Coordonn\351es en degr\351s}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.6}{Date et heure}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.7}{Mouvement apparent du Soleil - le d\351but du programme}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.8}{Mouvement apparent du Soleil - solstice d'\351t\351}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.9}{Mouvement apparent du Soleil - solstice d'hiver}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.10}{Mouvement apparent du Soleil - le graphique}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.11}{Mouvement r\351trograde de Mars}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.12}{Mouvement r\351trograde de Mars - d\351but du programme}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.13}{Mouvement r\351trograde de Mars - boucle principale}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.14}{Mouvement r\351trograde de Mars - le graphique}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.15}{Mouvement r\351trograde de Mars - changement du texte des axes}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.16}{Mouvement r\351trograde de Mars - le graphique}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.17}{Mouvement des lunes galil\351ennes - d\351but du programme}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.18}{Mouvement des lunes galil\351ennes - boucle principale}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.19}{Mouvement des lunes galil\351ennes - le graphique}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.20}{Mouvement des lunes galil\351ennes - le graphique}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.21}{D\351termination de l'\351clipse solaire - d\351but du programme}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.22}{D\351termination de l'\351clipse solaire - boucle principale}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.23}{D\351termination de l'\351clipse solaire -}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.24}{Phases d'une \351clipse solaire - d\351but du programme}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.25}{Phases d'une \351clipse solaire - suite}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.26}{Phases d'une \351clipse solaire - boucle principale}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.27}{Phases d'une \351clipse solaire - le graphique}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.28}{Conjonction de la lune et des plan\350tes}{section.3}% 33
+\BOOKMARK [2][-]{subsection.3.29}{Conjonction de la lune et des plan\350tes - boucle principale}{section.3}% 34
+\BOOKMARK [2][-]{subsection.3.30}{Conjonction de la lune et des plan\350tes - boucle principale \(suite\)}{section.3}% 35
+\BOOKMARK [1][-]{section.4}{Cartopy}{}% 36
+\BOOKMARK [2][-]{subsection.4.1}{Graphique}{section.4}% 37
+\BOOKMARK [2][-]{subsection.4.2}{Application: Eclipse totale du Soleil en 2027}{section.4}% 38

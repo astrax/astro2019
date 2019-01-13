@@ -1,22 +1,27 @@
-<html><head>
+<html>
+
+<head>
  <title>Predicting planetary visibility with PyEphem (Shallow Thoughts)</title>
 
- <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
- <link rel="alternate" type="application/rss+xml" title="Shallow Thoughts Feed" href="http://shallowsky.com/blog/index.rss">
+ <link rel="alternate" type="application/rss+xml" title="Shallow Thoughts Feed"
+       href="http://shallowsky.com/blog/index.rss" />
 
- <link rel="stylesheet" type="text/css" title="Blue" href="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/blue.css">
- <link rel="alternate stylesheet" type="text/css" title="Tan" href="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/tan.css">
+ <link rel="stylesheet" type="text/css" title="Blue"
+  href="/blog/css/blue.css" />
+ <link rel="alternate stylesheet" type="text/css" title="Tan"
+  href="/blog/css/tan.css" />
 
  <!-- Google insists on this for "mobile friendly" sites: -->
  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script type="text/javascript" async="" src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/embed.js"></script><script async="" type="text/javascript" src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/count.js"></script><link rel="prefetch" as="style" href="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/a_data/lounge.css"><link rel="prefetch" as="script" href="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/a_data/common.js"><link rel="prefetch" as="script" href="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/a_data/lounge.js"><link rel="prefetch" as="script" href="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/a_data/config.js"><script src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/count-data.js"></script></head>
+</head>
 
 <body bgcolor="#ffffff">
-<div id="content">
+<div id='content'>
 <a class="title" href="http://shallowsky.com/blog/">
-<div id="blogtitle">
+<div id='blogtitle'>
 <h1 class="title">Predicting planetary visibility with PyEphem (Shallow Thoughts)</h1>
 <span class="description">Akkana's Musings on Open Source Computing and Technology, Science, and Nature.</span>
 </div>
@@ -25,7 +30,7 @@
 <h2>Thu, 31 Jul 2014</h2>
 <div class="story">
 <p>
-</p><h2 class="story"><a name="predicting-conjunctions" href="http://shallowsky.com/blog/science/astro/predicting-conjunctions.html">Predicting planetary visibility with PyEphem</a></h2>
+<h2 class="story"><a name="predicting-conjunctions" href="http://shallowsky.com/blog/science/astro/predicting-conjunctions.html">Predicting planetary visibility with PyEphem</a></h2>
 <h3>Part II: Predicting Conjunctions</h3>
 <p>
 After I'd written a basic
@@ -33,11 +38,12 @@ After I'd written a basic
 to calculate when planets will be visible</a>,
 the next step was predicting conjunctions, times when two or more
 planets are close together in the sky.
-</p><p>
+<p>
 Finding separation between two objects is easy in PyEphem: it's just one
 line once you've set up your objects, observer and date.
 
-</p><pre>p1 = ephem.Mars()
+<pre>
+p1 = ephem.Mars()
 p2 = ephem.Jupiter()
 observer = ephem.Observer()  # and then set it to your city, etc.
 observer.date = ephem.date('2014/8/1')
@@ -50,14 +56,15 @@ ephem.separation(p1, p2)
 <p>
 So all I have to do is loop over all the visible planets and see when
 the separation is less than some set minimum, like 4 degrees, right?
-</p><p>
+<p>
 Well, not really. That tells me if there's a conjunction between
 a particular pair of planets, like Mars and Jupiter. But the really
 interesting events are when you have three or more objects close
 together in the sky. And events like that often span several days.
 If there's a conjunction of Mars, Venus, and the moon, I don't want to
 print something awful like
-</p><pre>Friday:
+<pre>
+Friday:
   Conjunction between Mars and Venus, separation 2.7 degrees.
   Conjunction between the moon and Mars, separation 3.8 degrees.
 Saturday:
@@ -70,7 +77,8 @@ Sunday:
 </pre>
 <p>
 ... and so on, for each day. I'd prefer something like:
-</p><pre wrap="">Conjunction between Mars, Venus and the moon lasts from Friday through Sunday.
+<pre wrap>
+Conjunction between Mars, Venus and the moon lasts from Friday through Sunday.
   Mars and Venus are closest on Saturday (2.2 degrees).
   The moon and Mars are closest on Sunday (2.5 degrees).
 </pre>
@@ -85,7 +93,7 @@ out of hand quickly. What if my conjunction list looks like
 [ [mars, venus], [jupiter, saturn] ] and then I see there's also
 a conjunction between Mars and Jupiter? Oops -- how do you merge
 those two lists together?
-</p><p>
+<p>
 The solution to taking all these pairs and turning them into a list
 of groups that are all connected actually lies in graph theory: each
 conjunction pair, like [mars, venus], is an edge, and the trick is to
@@ -93,7 +101,7 @@ find all the connected edges. But turning my list of conjunction pairs
 into a graph so I could use a pre-made graph theory algorithm looked
 like it was going to be more code -- and a lot harder to read and less
 maintainable -- than making a bunch of custom Python classes.
-</p><p>
+<p>
 I eventually ended up with three classes:
 ConjunctionPair, for a single conjunction observed between two bodies
 on a single date;
@@ -103,28 +111,28 @@ and ConjunctionList, the list of all Conjunctions currently active.
 That let me write methods to handle merging multiple conjunction
 events together if they turned out to be connected, as well as a
 method to summarize the event in a nice, readable way.
-</p><p>
+<p>
 So predicting conjunctions ended up being a lot more code than I
 expected -- but only because of the problem of presenting it neatly
 to the user. As always, user interface represents the hardest part
 of coding.
 
-</p><p>
+<p>
 The working script is on github at
 <a href="https://github.com/akkana/scripts/blob/master/conjunctions.py">conjunctions.py</a>.
 
 </p>
-<span class="tags">Tags:  <a href="http://shallowsky.com/blog/tags/astronomy" rel="tag">astronomy</a>, <a href="http://shallowsky.com/blog/tags/science" rel="tag">science</a>, <a href="http://shallowsky.com/blog/tags/programming" rel="tag">programming</a>, <a href="http://shallowsky.com/blog/tags/python" rel="tag">python</a> </span><br>
+<span class="tags">Tags:  <a href="http://shallowsky.com/blog/tags/astronomy" rel="tag">astronomy</a>, <a href="http://shallowsky.com/blog/tags/science" rel="tag">science</a>, <a href="http://shallowsky.com/blog/tags/programming" rel="tag">programming</a>, <a href="http://shallowsky.com/blog/tags/python" rel="tag">python</a> </span><br />
 [ <i>19:57 Jul 31, 2014&nbsp; &nbsp;
  <a href="http://shallowsky.com/blog/science/astro" title="Category">More science/astro</a> |
  <a href="http://shallowsky.com/blog/science/astro/predicting-conjunctions.html" title="Permalink">permalink to this entry</a> |
- <a href="http://shallowsky.com/blog/science/astro/predicting-conjunctions.html#disqus_thread" title="comments">0 Comments</a>
+ <a href="http://shallowsky.com/blog/science/astro/predicting-conjunctions.html#disqus_thread" title="comments">comments</a>
 </i> ]
 </div>
 <div name="comments">
 <i>(Commenting requires Javascript from ShallowSky.com and
 Disqus.com, and a cookie from Disqus.com.)</i>
-<div id="disqus_thread"><iframe id="dsq-app5073" name="dsq-app5073" allowtransparency="true" scrolling="no" tabindex="0" title="Disqus" style="width: 1px !important; min-width: 100% !important; border: medium none !important; overflow: hidden !important; height: 683px !important;" src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/a.html" horizontalscrolling="no" verticalscrolling="no" width="100%" frameborder="0"></iframe></div>
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'shallowsky';
 
@@ -140,7 +148,7 @@ Disqus.com, and a cookie from Disqus.com.)</i>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 
 
@@ -148,18 +156,19 @@ Disqus.com, and a cookie from Disqus.com.)</i>
 <div id="rightsidebar">
 
 <div id="searchbox">
-<form method="GET" action="http://www.google.com/search">
+<form method=GET action="http://www.google.com/search">
 Google this blog:
-<input type="text" name="q" maxlength="255" "="">
-<input type="submit" name="btnG" value="Search">
-<input type="radio" name="sitesearch" value="shallowsky.com/blog" checked="checked" style="display: none">
+<input type=text name=q maxlength=255 value=""">
+<input type=submit name=btnG value="Search">
+<input type=radio name=sitesearch value="shallowsky.com/blog" checked
+ style="display: none">
 </form>
 </div>
 
 <table class="blosxomCalendar">
-<tbody><tr>
+<tr>
 <td align="left"><a href="http://shallowsky.com/blog/2014/Jun">&lt;</a></td>
-<td colspan="5" class="blosxomCalendarHead" align="center">July 2014</td>
+<td colspan="5" align="center" class="blosxomCalendarHead">July 2014</td>
 <td align="right"><a href="http://shallowsky.com/blog/2014/Aug">&gt;</a></td>
 </tr>
 <tr><td class="blosxomCalendarWeekHeader">Su</td><td class="blosxomCalendarWeekHeader">Mo</td><td class="blosxomCalendarWeekHeader">Tu</td><td class="blosxomCalendarWeekHeader">We</td><td class="blosxomCalendarWeekHeader">Th</td><td class="blosxomCalendarWeekHeader">Fr</td><td class="blosxomCalendarWeekHeader">Sa</td></tr>
@@ -168,79 +177,84 @@ Google this blog:
 <tr><td class="blosxomCalendarCell">13</td><td class="blosxomCalendarCell">14</td><td class="blosxomCalendarCell">15</td><td class="blosxomCalendarBlogged"><a href="http://shallowsky.com/blog/2014/Jul/16">16</a></td><td class="blosxomCalendarCell">17</td><td class="blosxomCalendarCell">18</td><td class="blosxomCalendarCell">19</td></tr>
 <tr><td class="blosxomCalendarCell">20</td><td class="blosxomCalendarCell">21</td><td class="blosxomCalendarCell">22</td><td class="blosxomCalendarBlogged"><a href="http://shallowsky.com/blog/2014/Jul/23">23</a></td><td class="blosxomCalendarCell">24</td><td class="blosxomCalendarCell">25</td><td class="blosxomCalendarCell">26</td></tr>
 <tr><td class="blosxomCalendarCell">27</td><td class="blosxomCalendarCell">28</td><td class="blosxomCalendarCell">29</td><td class="blosxomCalendarCell">30</td><td class="blosxomCalendarBlogged"><a href="http://shallowsky.com/blog/2014/Jul/31">31</a></td><td class="blosxomCalendarEmpty">&nbsp;</td><td class="blosxomCalendarEmpty">&nbsp;</td></tr>
-</tbody></table>
-<br>
+</table>
+<br />
 <p>
-<b><a href="http://shallowsky.com/blog/">Shallow Thoughts</a></b>
-<br>
+<b><a href="/blog/">Shallow Thoughts</a></b>
+<br />
 <b>Categories:</b>
 
-<br>
-<b><a href="http://shallowsky.com/blog/topics.html">Shallow Thoughts Archives</a></b>
-(all entries, by category)<br>
-<br>
-<b><a href="http://shallowsky.com/blog/tags/">Entries by Tag</a></b>
-</p><p>
+<br />
+<b><a href="/blog/topics.html">Shallow Thoughts Archives</a></b>
+(all entries, by category)<br />
+<br />
+<b><a href="/blog/tags/">Entries by Tag</a></b>
+<p>
 
-<b>About:</b><br>
+<b>About:</b><br />
 <table>
-<tbody><tr>
+<tr>
 <td>
-<a href="http://shallowsky.com/blog/index.rss"><img src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/rssicon-25x25.png" alt="[RSS feed]" width="25" height="25" border="0" align="left"></a>
-</td><td>
-<a href="http://shallowsky.com/blog/index.rss">RSS feed</a><br>
-</td></tr>
+<a href="http://shallowsky.com/blog/index.rss"><img border=0
+ src="http://shallowsky.com/images/logos/rssicon-25x25.png"
+ align=left width=25 height=25 alt="[RSS feed]"></a>
+<td>
+<a href="http://shallowsky.com/blog/index.rss">RSS feed</a><br />
+</tr>
 <tr>
 <td>
 <a href="http://twitter.com/akkakk">
- <img alt="[Twitter]" src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/twitter-bird-white-on-blue-25x25.png" width="25" height="25" border="0" align="left"></a>
-</td><td>
-<a href="http://twitter.com/akkakk">Follow  @akkakk on Twitter</a><br>
-</td></tr>
+ <img border=0 align=left width=25 height=25 alt="[Twitter]"
+ src="http://shallowsky.com/images/logos/twitter-bird-white-on-blue-25x25.png"></a>
+<td>
+<a href="http://twitter.com/akkakk">Follow  @akkakk on Twitter</a><br />
+</tr>
 <tr>
 <td>
-<a href="http://shallowsky.com/">
-<img src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/favicon.ico" alt="[Saturn icon]" width="25" height="25" align="left"></a>
-</td><td>
-<a href="http://shallowsky.com/">Shallow Sky Home</a><br>
-</td></tr><tr>
+<a href="http://shallowsky.com">
+<img src="http://shallowsky.com/favicon.ico" align=left width=25 height=25
+ alt="[Saturn icon]"></a>
+<td>
+<a href="http://shallowsky.com">Shallow Sky Home</a><br />
+<tr>
 <td>
 <a href="http://shallowsky.com/mailme.html">
-<img src="Predicting%20planetary%20visibility%20with%20PyEphem%20II(Shallow%20Thoughts)_files/envelope-25x25.png" alt="[envelope]" width="25" height="25" align="left"></a>
-</td><td>
-<a href="http://shallowsky.com/mailme.html">Contact Akkana</a><br>
-</td></tr></tbody></table>
+<img src="http://shallowsky.com/images/logos/envelope-25x25.png" align=left width=25 height=25
+ alt="[envelope]"></a>
+<td>
+<a href="http://shallowsky.com/mailme.html">Contact Akkana</a><br />
+</table>
 
-</p><p>
-<b>Syndicated on:</b><br>
-• <a href="http://live.linuxchix.org/">LinuxChix Live</a><br>
-• <a href="http://planet.ubuntu-women.org/">Ubuntu Women</a><br>
-• <a href="http://planeteria.org/wfs/">Women in Free Software</a><br>
-• <a href="http://www.graphicsplanet.org/">Graphics Planet</a><br>
-• <a href="http://www.devchix.com/whos-in-devchix/">DevChix</a><br>
-• <a href="http://planet.ubuntu-california.org/">Ubuntu California</a><br>
-• <a href="http://planetob.openmonkey.com/">Planet Openbox</a><br>
-• <a href="http://www.google.com/reader/bundle/user%2F08933770635430556023%2Fbundle%2Fdevchixen">Devchix</a><br>
-• <a href="http://planet.linux.org.au/lca2009/">Planet LCA2009</a><br>
-<br>
+<p>
+<b>Syndicated on:</b><br />
+&bull; <a href="http://live.linuxchix.org/">LinuxChix Live</a><br />
+&bull; <a href="http://planet.ubuntu-women.org/">Ubuntu Women</a><br />
+&bull; <a href="http://planeteria.org/wfs/">Women in Free Software</a><br />
+&bull; <a href="http://www.graphicsplanet.org/">Graphics Planet</a><br />
+&bull; <a href="http://www.devchix.com/whos-in-devchix/">DevChix</a><br />
+&bull; <a href="http://planet.ubuntu-california.org/">Ubuntu California</a><br />
+&bull; <a href="http://planetob.openmonkey.com/">Planet Openbox</a><br />
+&bull; <a href="http://www.google.com/reader/bundle/user%2F08933770635430556023%2Fbundle%2Fdevchixen">Devchix</a><br />
+&bull; <a href="http://planet.linux.org.au/lca2009/">Planet LCA2009</a><br />
+<br />
 
-<b>Friends' Blogs:</b><br>
+<b>Friends' Blogs:</b><br />
 <!-- &bull; <a href="http://creature365.blogspot.com/">Creature/365</a><br /> -->
-• <a href="http://mojo.whiteoaks.com/">Morris "Mojo" Jones</a><br>
-• <a href="http://jane.whiteoaks.com/">Jane Houston Jones</a><br>
-• <a href="http://danheller.blogspot.com/">Dan Heller</a><br>
-• <a href="http://longlivethevillagegreen.blogspot.com/">Long Live the Village Green</a><br>
-• <a href="http://petej.com/blog/">Ups &amp; Downs</a><br>
-• <a href="http://dailybbg.blogspot.com/">DailyBBG</a><br>
-<br>
+&bull; <a href="http://mojo.whiteoaks.com/">Morris "Mojo" Jones</a><br />
+&bull; <a href="http://jane.whiteoaks.com/">Jane Houston Jones</a><br />
+&bull; <a href="http://danheller.blogspot.com/">Dan Heller</a><br />
+&bull; <a href="http://longlivethevillagegreen.blogspot.com/">Long Live the Village Green</a><br />
+&bull; <a href="http://petej.com/blog/">Ups &amp; Downs</a><br />
+&bull; <a href="http://dailybbg.blogspot.com/">DailyBBG</a><br />
+<br />
 
-<b>Other Blogs of Interest:</b><br>
-• <a href="http://devchix.com/">DevChix</a><br>
+<b>Other Blogs of Interest:</b><br />
+&bull; <a href="http://devchix.com/">DevChix</a><br />
 <!-- &bull; <a href="http://riverbendblog.blogspot.com/">Baghdad Burning (Riverbend)</a><br /> -->
-• <a href="http://dilbertblog.typepad.com/">Scott Adams</a><br>
-• <a href="http://weblog.herald.com/column/davebarry/">Dave Barry</a><br>
-• <a href="http://boingboing.net/">BoingBoing</a><br>
-<br>
+&bull; <a href="http://dilbertblog.typepad.com/">Scott Adams</a><br />
+&bull; <a href="http://weblog.herald.com/column/davebarry/">Dave Barry</a><br />
+&bull; <a href="http://boingboing.net/">BoingBoing</a><br />
+<br />
 
 <!-- 
 <b>Mozilla Blogs</b><br />
@@ -249,9 +263,10 @@ Google this blog:
 <br />
  -->
 
-</p><p>
-Powered by <a href="http://pyblosxom.sourceforge.net/">PyBlosxom</a>.
-</p></div> <!-- end #rightsidebar -->
+<p>
+Powered by <a
+href="http://pyblosxom.sourceforge.net/">PyBlosxom</a>.
+</div> <!-- end #rightsidebar -->
 
 <script type="text/javascript">
     var disqus_shortname = 'shallowsky';
@@ -265,7 +280,6 @@ Powered by <a href="http://pyblosxom.sourceforge.net/">PyBlosxom</a>.
     }());
 </script>
 
+</body>
+</html>
 
-
-
-<iframe style="display: none;"></iframe></body></html>
