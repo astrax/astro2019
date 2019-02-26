@@ -1,0 +1,1291 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Tutoriel: Apprendre l'Astronomie avec Python">
+
+<title>Tutoriel: Apprendre l'Astronomie avec Python</title>
+
+<!-- Bootstrap style: bootstrap -->
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:50px;      /* fixed header height for style bootstrap */
+  margin:-50px 0 0; /* negative fixed header height */
+}
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table des matières',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Python', 1, None, '___sec0'),
+              ("Installation d'un environnement Python scientifique",
+               1,
+               None,
+               '___sec1'),
+              ('Installation sur ordinateur', 2, None, '___sec2'),
+              ('Qu’est ce que Anaconda ?', 3, None, '___sec3'),
+              ('Préparer la formation: téléchargement d’Anaconda',
+               3,
+               None,
+               '___sec4'),
+              ('Installation sur smartphone', 2, None, '___sec5'),
+              ('Pydroid 3 - IDE éducatif pour Python 3', 3, None, '___sec6'),
+              ('PyEphem', 1, None, '___sec7'),
+              ('Installation', 2, None, '___sec8'),
+              ("Importation de module et lieu de l'observateur",
+               2,
+               None,
+               '___sec9'),
+              ('Objets célestes et leur localisation', 2, None, '___sec10'),
+              ('Lecture de coordonnées', 2, None, '___sec11'),
+              ('Coordonnées en degrés', 2, None, '___sec12'),
+              ('Date et heure', 2, None, '___sec13'),
+              ('Mouvement apparent du Soleil - le début du programme',
+               2,
+               None,
+               '___sec14'),
+              ("Mouvement apparent du Soleil - solstice d'été",
+               2,
+               None,
+               '___sec15'),
+              ("Mouvement apparent du Soleil - solstice d'hiver",
+               2,
+               None,
+               '___sec16'),
+              ('Mouvement apparent du Soleil - le graphique',
+               2,
+               None,
+               '___sec17'),
+              ('Exercise 1: Mouvement apparent du Soleil - région polaire',
+               2,
+               None,
+               '___sec18'),
+              ('Mouvement rétrograde de Mars', 2, None, '___sec19'),
+              ('Mouvement rétrograde de Mars - début du programme',
+               2,
+               None,
+               '___sec20'),
+              ('Mouvement rétrograde de Mars - boucle principale',
+               2,
+               None,
+               '___sec21'),
+              ('Mouvement rétrograde de Mars - le graphique',
+               2,
+               None,
+               '___sec22'),
+              ('Mouvement rétrograde de Mars - changement du texte des axes',
+               2,
+               None,
+               '___sec23'),
+              ('Mouvement rétrograde de Mars - le graphique',
+               2,
+               None,
+               '___sec24'),
+              ('Exercise 2: Quand le prochain mouvement rétrograde de la '
+               'planète Mars?',
+               2,
+               None,
+               '___sec25'),
+              ('Mouvement des lunes galiléennes - début du programme',
+               2,
+               None,
+               '___sec26'),
+              ('Mouvement des lunes galiléennes - boucle principale',
+               2,
+               None,
+               '___sec27'),
+              ('Mouvement des lunes galiléennes - le graphique',
+               2,
+               None,
+               '___sec28'),
+              ('Mouvement des lunes galiléennes - le graphique',
+               2,
+               None,
+               '___sec29'),
+              ("Détermination de l'éclipse solaire - début du programme",
+               2,
+               None,
+               '___sec30'),
+              ("Détermination de l'éclipse solaire - boucle principale",
+               2,
+               None,
+               '___sec31'),
+              ("Détermination de l'éclipse solaire -", 2, None, '___sec32'),
+              ("Phases d'une éclipse solaire - début du programme",
+               2,
+               None,
+               '___sec33'),
+              ("Phases d'une éclipse solaire - suite", 2, None, '___sec34'),
+              ("Phases d'une éclipse solaire - boucle principale",
+               2,
+               None,
+               '___sec35'),
+              ("Phases d'une éclipse solaire - le graphique",
+               2,
+               None,
+               '___sec36'),
+              ('Conjonction de la lune et des planètes', 2, None, '___sec37'),
+              ('Conjonction de la lune et des planètes - boucle principale',
+               2,
+               None,
+               '___sec38'),
+              ('Conjonction de la lune et des planètes - boucle principale '
+               '(suite)',
+               2,
+               None,
+               '___sec39'),
+              ('Cartopy', 1, None, '___sec40'),
+              ('Graphique', 2, None, '___sec41'),
+              ('Application: Eclipse totale du Soleil en 2027',
+               2,
+               None,
+               '___sec42')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="astro2019.html">Tutoriel: Apprendre l'Astronomie avec Python</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contenu <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table des matières</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 80%;"><b>Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 80%;"><b>Installation d'un environnement Python scientifique</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Installation sur ordinateur</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qu’est ce que Anaconda ?</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Préparer la formation: téléchargement d’Anaconda</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec5" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Installation sur smartphone</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec6" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pydroid 3 - IDE éducatif pour Python 3</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec7" style="font-size: 80%;"><b>PyEphem</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Installation</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec9" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Importation de module et lieu de l'observateur</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec10" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Objets célestes et leur localisation</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec11" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lecture de coordonnées</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec12" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Coordonnées en degrés</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec13" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Date et heure</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec14" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement apparent du Soleil - le début du programme</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec15" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement apparent du Soleil - solstice d'été</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec16" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement apparent du Soleil - solstice d'hiver</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec17" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement apparent du Soleil - le graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec18" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Mouvement apparent du Soleil - région polaire</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec19" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement rétrograde de Mars</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec20" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement rétrograde de Mars - début du programme</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec21" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement rétrograde de Mars - boucle principale</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec22" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement rétrograde de Mars - le graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec23" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement rétrograde de Mars - changement du texte des axes</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec24" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement rétrograde de Mars - le graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec25" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Quand le prochain mouvement rétrograde de la planète Mars?</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec26" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement des lunes galiléennes - début du programme</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec27" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement des lunes galiléennes - boucle principale</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec28" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement des lunes galiléennes - le graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec29" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mouvement des lunes galiléennes - le graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec30" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Détermination de l'éclipse solaire - début du programme</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec31" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Détermination de l'éclipse solaire - boucle principale</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec32" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Détermination de l'éclipse solaire -</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec33" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Phases d'une éclipse solaire - début du programme</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec34" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Phases d'une éclipse solaire - suite</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec35" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Phases d'une éclipse solaire - boucle principale</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec36" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Phases d'une éclipse solaire - le graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec37" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Conjonction de la lune et des planètes</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec38" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Conjonction de la lune et des planètes - boucle principale</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec39" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Conjonction de la lune et des planètes - boucle principale (suite)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec40" style="font-size: 80%;"><b>Cartopy</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec41" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Graphique</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec42" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Application: Eclipse totale du Soleil en 2027</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>Tutoriel: Apprendre l'Astronomie avec Python</h1></center>  <!-- document title -->
+
+<p>
+<!-- author(s): Ahmed Ammar -->
+
+<center>
+<b>Ahmed Ammar</b>  (<tt>ahmed.ammar at fst.utm.tn</tt>)
+</center>
+
+<p>
+<!-- institution -->
+
+<center><b>Facult&#233; des Sciences, Universit&#233; de Tunis El Manar et Soci&#233;t&#233; Astronomique de Tunisie.</b></center>
+<br>
+<p>
+<center><h4>2019</h4></center> <!-- date -->
+<br>
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table des matières</h2>
+
+<p>
+<a href="#___sec0"> Python </a><br>
+<a href="#___sec1"> Installation d'un environnement Python scientifique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec2"> Installation sur ordinateur </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec5"> Installation sur smartphone </a><br>
+<a href="#___sec7"> PyEphem </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec8"> Installation </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec9"> Importation de module et lieu de l'observateur </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec10"> Objets c&#233;lestes et leur localisation </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec11"> Lecture de coordonn&#233;es </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec12"> Coordonn&#233;es en degr&#233;s </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec13"> Date et heure </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec14"> Mouvement apparent du Soleil - le d&#233;but du programme </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec15"> Mouvement apparent du Soleil - solstice d'&#233;t&#233; </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec16"> Mouvement apparent du Soleil - solstice d'hiver </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec17"> Mouvement apparent du Soleil - le graphique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec18"> Exercise 1: Mouvement apparent du Soleil - r&#233;gion polaire </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec19"> Mouvement r&#233;trograde de Mars </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec20"> Mouvement r&#233;trograde de Mars - d&#233;but du programme </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec21"> Mouvement r&#233;trograde de Mars - boucle principale </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec22"> Mouvement r&#233;trograde de Mars - le graphique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec23"> Mouvement r&#233;trograde de Mars - changement du texte des axes </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec24"> Mouvement r&#233;trograde de Mars - le graphique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec25"> Exercise 2: Quand le prochain mouvement r&#233;trograde de la plan&#232;te Mars? </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec26"> Mouvement des lunes galil&#233;ennes - d&#233;but du programme  </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec27"> Mouvement des lunes galil&#233;ennes - boucle principale  </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec28"> Mouvement des lunes galil&#233;ennes - le graphique  </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec29"> Mouvement des lunes galil&#233;ennes - le graphique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec30"> D&#233;termination de l'&#233;clipse solaire - d&#233;but du programme </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec31"> D&#233;termination de l'&#233;clipse solaire - boucle principale </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec32"> D&#233;termination de l'&#233;clipse solaire -  </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec33"> Phases d'une &#233;clipse solaire - d&#233;but du programme </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec34"> Phases d'une &#233;clipse solaire - suite </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec35"> Phases d'une &#233;clipse solaire - boucle principale </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec36"> Phases d'une &#233;clipse solaire - le graphique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec37"> Conjonction de la lune et des plan&#232;tes </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec38"> Conjonction de la lune et des plan&#232;tes - boucle principale </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec39"> Conjonction de la lune et des plan&#232;tes - boucle principale (suite) </a><br>
+<a href="#___sec40"> Cartopy </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec41"> Graphique </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec42"> Application: Eclipse totale du Soleil en 2027 </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Python </h1>
+<a href="http://www.python.org/" target="_self">Python</a> est un langage de programmation moderne de haut niveau, orient&#233; objet et d'usage g&#233;n&#233;ral.
+
+<p>
+<b>Caract&#233;ristiques g&#233;n&#233;rales de Python</b> :
+
+<ul>
+<li> Langage simple:</li>
+
+<ul>
+  <li> facile &#224; lire et &#224; apprendre avec une syntaxe minimaliste.</li>
+</ul>
+
+<li> Langage concis et expressif:</li>
+
+<ul>
+  <li> moins de lignes de code</li>
+  <li> moins de bugs</li>
+  <li> plus facile &#224; maintenir.</li>
+</ul>
+
+</ul>
+
+<!-- !split -->
+<b>D&#233;tails techniques</b> :
+
+<ul>
+<li> Typ&#233; dynamiquement:</li>
+
+<ul>
+  <li> Pas besoin de d&#233;finir le type des variables, les arguments ou le type des fonctions.</li>
+</ul>
+
+<li> La gestion automatique de la m&#233;moire:</li>
+
+<ul>
+  <li> Aucune n&#233;cessit&#233; d'allouer explicitement et d&#233;sallouer la m&#233;moire pour les variables et les tableaux de donn&#233;es. Aucun bug de fuite de m&#233;moire.</li>
+</ul>
+
+<li> Interpr&#233;t&#233;:</li>
+
+<ul>
+  <li> Pas besoin de compiler le code. L'interpr&#233;teur Python lit et ex&#233;cute le code python directement.</li>
+</ul>
+
+</ul>
+
+<!-- !split -->
+<b>Avantages</b> :
+
+<ul>
+<li> Le principal avantage est la facilit&#233; de programmation, qui minimise le temps n&#233;cessaire pour d&#233;velopper, d&#233;boguer et maintenir le code.</li>
+<li> Langage bien con&#231;u qui encourage les bonnes pratiques de programmation:</li>
+
+<ul>
+  <li> Modulaire et orient&#233;e objet, permet l'encapsulation  et la r&#233;utilisation de code. Il en r&#233;sulte souvent un code plus transparent, plus facile &#224; am&#233;liorer et sans bug.</li>
+  <li> Documentation int&#233;gr&#233; avec le code.</li>
+</ul>
+
+<li> De nombreuses biblioth&#232;ques standards, et de nombreux packages add-on.</li>
+</ul>
+
+<!-- !split -->
+<br /><br /><center><p><img src="figs/python_easy.png" align="bottom" width=600></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<h1 id="___sec1" class="anchor">Installation d'un environnement Python scientifique </h1>
+
+<h2 id="___sec2" class="anchor">Installation sur ordinateur </h2>
+
+<h3 id="___sec3" class="anchor">Qu&#8217;est ce que Anaconda ? </h3>
+
+<p>
+L&#8217;installation d&#8217;un environnement Python complet peut-&#234;tre une vraie gal&#232;re. D&#233;j&#224;, il faut t&#233;l&#233;charger Python et l&#8217;installer. Par la suite, t&#233;l&#233;charger un &#224; un les packages dont on a besoin. Parfois, le nombre de ces librairies peut-&#234;tre grand.
+
+<p>
+Par ailleurs, il faut s&#8217;assurer de la compatibilit&#233; entre les versions des diff&#233;rentes packages qu&#8217;on a &#224; t&#233;l&#233;charger. Bref, ce n&#8217;est pas amusant.
+
+<p>
+<!-- !split -->
+<a href="https://www.anaconda.com/download/" target="_self">Anaconda</a> est  une distribution Python. A son installation, Anaconda installera Python ainsi qu'une multitude de packages (voir <a href="https://docs.anaconda.com/anaconda/packages/pkg-docs#python-3-6" target="_self">liste de packages anaconda</a>).  Cela nous &#233;vite de nous ruer dans les probl&#232;mes d&#8217;incompatibilit&#233;s entre les diff&#233;rents packages.
+
+<p>
+Finalement, Anaconda propose un outil de gestion de packages appel&#233; <a href="https://conda.io/docs/" target="_self">conda</a>. Ce dernier permettra de mettre &#224; jour et installer facilement les librairies dont on aura besoin pour nos d&#233;veloppements.
+
+<p>
+<!-- !split -->
+
+<h3 id="___sec4" class="anchor">Pr&#233;parer la formation: t&#233;l&#233;chargement d&#8217;Anaconda </h3>
+
+<p>
+Nous demandons &#224; tous les &#233;tudiants de t&#233;l&#233;charger Anaconda. Pour cela, il faut t&#233;l&#233;charger un installeur &#224; partir de <a href="https://www.anaconda.com/download/" target="_self"><tt>https://www.anaconda.com/download/</tt></a>, correspondant &#224; votre syst&#232;me d&#8217;exploitation (Windows, Mac OS X, Linux). Il faut choisir entre 32 bits ou 64 bits (pour la version <em>Python 3</em>) selon que votre syst&#232;me d&#8217;exploitation est 32 bits ou 64 bits.
+<!-- !split -->
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 1:  Interface graphique du navigateur Anaconda sur Windows </p></center>
+<p><img src="figs/AnacondaNavigator.png" align="bottom" width=600></p>
+</center>
+
+<p>
+<!-- !split -->
+<div class="alert alert-block alert-success alert-text-normal"><b>Remarque.</b>
+Anaconda installe plusieurs ex&#233;cutables pour d&#233;velopper en Python dans le r&#233;pertoire <em>anaconda/bin</em>, sans toujours cr&#233;er des raccourcis sur le bureau ou dans un menu. Nous nous occuperons au tout d&#233;but de la formation de cr&#233;er des raccourcis pour pouvoir lancer l'application web <em>Jupyter notebook</em>. Vous pouvez lancer le notebook depuis le navigateur Anaconda.
+</div>
+
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec5" class="anchor">Installation sur smartphone </h2>
+
+<h3 id="___sec6" class="anchor">Pydroid 3 - IDE &#233;ducatif pour Python 3 </h3>
+
+<p>
+Pydroid 3 est l'IDE &#233;ducatif Python 3 le plus simple et le plus puissant &#224; utiliser pour Android.
+
+<p>
+Pydroid 3 fournit:
+
+<ul>
+<li> Interpr&#233;teur Python 3.6 hors connexion: Internet n'est pas n&#233;cessaire pour ex&#233;cuter des programmes Python.</li>
+<li> Pip package manager et un r&#233;f&#233;rentiel personnalis&#233; pour les packages de roues pr&#233;d&#233;finis pour les biblioth&#232;ques scientifiques am&#233;lior&#233;es, tels que numpy, scipy, matplotlib, scikit-learn et jupyter.</li>
+<li> ...</li>
+</ul>
+
+<!-- !split -->
+<b>Installer et utiliser Pydroid 3 sur son smartphone:</b>
+
+<p>
+Pydroid est une application Android que vous pouvez obtenir sur Google Play: <a href="https://play.google.com/store/apps/details?id=ru.iiec.pydroid3" target="_self"><tt>https://play.google.com/store/apps/details?id=ru.iiec.pydroid3</tt></a>
+
+<p>
+Les &#233;tapes suivantes, dans les figures ci-dessous, vous permettent d&#8217;utiliser le cahier Jupyter sur votre t&#233;l&#233;phone portable n&#8217;importe o&#249; et &#224; tout moment pour vous entra&#238;ner au maximum et vous familiariser avec tous les exemples de programmation de ce cours.
+
+<p>
+<!-- !split -->
+<b>Phase installation:</b>
+
+<p>
+1. Installer Pydroid 3 depuis Google Play: <a href="https://play.google.com/store/apps/details?id=ru.iiec.pydroid3" target="_self"><tt>https://play.google.com/store/apps/details?id=ru.iiec.pydroid3</tt></a>
+
+<p>
+2. Ouvrez l'application, sur le menu cliquez sur pip et allez &#224; l'onglet "QUICK INSTALL" pour obtenir les biblioth&#232;ques scientifiques n&#233;cessaires &#224; ce cours.
+
+<p>
+3. Dans "QUICK INSTALL", installer les packages <em>Jupyter</em> , <em>numpy</em> et <em>matplotlib</em>.
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 2:  Pydroid 3: Phase installation </p></center>
+<p><img src="figs/pydroid3_1.png" align="bottom" width=600></p>
+</center>
+
+<p>
+<!-- !split -->
+<b>Phase utilisation:</b>
+
+<p>
+4. Retournez au menu et ouvrez le <b>terminal</b>.
+
+<p>
+5. Sur le terminal, entrez la commande suivante:
+
+<p>
+
+<!-- code=text (!bc sys) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>jupyter notebook
+</pre></div>
+<p>
+6. Jupyter s'ex&#233;cutera sur votre navigateur Web. Acc&#233;dez au r&#233;pertoire dans lequel vous avez des notebooks &#224; ouvrir, &#224; t&#233;l&#233;charger (bouton <em>upload</em>) ou &#224; cr&#233;er (bouton <em>New</em>).
+
+<p>
+7. Amusez-vous &#224; travailler sur le notebook: cr&#233;ez du contenu, lancez et modifiez des exemples
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 3:  Pydroid 3: Phase utilisation </p></center>
+<p><img src="figs/pydroid3_2.png" align="bottom" width=600></p>
+</center>
+
+<p>
+<!-- !split -->
+
+<h1 id="___sec7" class="anchor">PyEphem </h1>
+Le module <b>PyEphem</b> (<a href="https://rhodesmill.org/pyephem/" target="_self"><tt>https://rhodesmill.org/pyephem/</tt></a>) vous permet d'effectuer de nombreux calculs astronomiques professionnels. Vous pouvez l'utiliser:
+
+<ul>
+<li> calculer les positions du soleil, de la lune, des plan&#232;tes et de leurs lunes.</li>
+<li> d&#233;terminer l'emplacement actuel des ast&#233;ro&#239;des, des com&#232;tes et des satellites artificiels (fournir des &#233;l&#233;ments orbitaux).</li>
+<li> d&#233;terminer le lever et le coucher du soleil d'objets divers en fonction de la position de l'observateur &#224; la surface de la Terre.</li>
+<li> trouver dans quelle constellation l'objet est.</li>
+<li> calculer la position de &#233;toiles, galaxies, etc.</li>
+</ul>
+
+<b>PyEphem</b> est bas&#233; sur des proc&#233;dures &#233;crites pour le programme <b>XEphem</b> (<a href="www.clearskyinstitute.com/xephem/" target="_self"><tt>www.clearskyinstitute.com/xephem/</tt></a>), disponible depuis de nombreuses ann&#233;es pour les utilisateurs du syst&#232;me <em>Unix</em>.
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec8" class="anchor">Installation </h2>
+La version 3.7.6.0 est la version la plus r&#233;cente de PyEphem.
+<br /><br /><center><p><img src="figs/pyephem.png" align="bottom" width=500></p></center><br /><br />
+Le moyen le plus simple d&#8217;installer PyEphem sur un ordinateur Window, Linux ou Mac OS, apr&#232;s s&#8217;&#234;tre assur&#233; que la distribution Python <b>Anaconda</b> est bien install&#233;e, est d'utiliser la commande <code>pip</code>, comme ceci:
+<p>
+
+<!-- code=shell (!bc shell) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ pip install pyephem
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec9" class="anchor">Importation de module et lieu de l'observateur </h2>
+Le module <b>PyEphem</b> est disponible sous le nom <b>ephem</b> qui peut &#234;tre modifi&#233; lors de l&#8217;importation par l'alias <b>ep</b> pour raccourcir la programmation.
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic">#OBSERVATEUR</span>
+obs <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Observer()
+<span style="color: #408080; font-style: italic"># nous créons une structure dans laquelle des données</span>
+<span style="color: #408080; font-style: italic"># sur la position de l&#39;observateur seront stockées</span>
+obs<span style="color: #666666">.</span>lon <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;10.00&quot;</span>
+obs<span style="color: #666666">.</span>lat <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;36.5&quot;</span>
+obs<span style="color: #666666">.</span>name <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;SAT-Tunis&quot;</span>
+obs<span style="color: #666666">.</span>elevation <span style="color: #666666">=</span> <span style="color: #666666">100.0</span>
+</pre></div>
+<p>
+Les fonctions et les structures du module <code>ephem </code> sont appel&#233;es dans la fonction <code>ep.method()</code>. Tout d'abord, nous d&#233;finissons la position de l'observateur. Pour ce faire, nous cr&#233;ons la structure appropri&#233;e (<code>structure = ep.Observer()</code>) et remplissons ses champs (<code>structure.champ = valeur</code>).
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec10" class="anchor">Objets c&#233;lestes et leur localisation </h2>
+Tous les objets c&#233;lestes importants tels que le Soleil, la Lune, les plan&#232;tes et leurs lunes peuvent &#234;tre cr&#233;&#233;s par la structure de <code>fonction = ep.NomObjet()</code>.
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># Objets</span>
+<span style="color: #408080; font-style: italic"># nous créons une structure dans laquelle les données seront stockées</span>
+lune <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Moon()
+</pre></div>
+<p>
+Apr&#232;s avoir cr&#233;&#233; l'objet, nous pouvons calculer son emplacement actuel en fournissant des informations sur l'observateur, situ&#233;es dans la structure <code>obs</code> pr&#233;c&#233;demment cr&#233;&#233;e.
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># CALCULS</span>
+<span style="color: #408080; font-style: italic"># on calcule la position actuelle de l&#39;objet</span>
+<span style="color: #408080; font-style: italic"># pour l&#39;observateur créé plus tôt</span>
+lune<span style="color: #666666">.</span>compute(obs)
+</pre></div>
+<p>
+Comme vous pouvez le constater, vous pouvez d&#233;finir plusieurs observateurs diff&#233;rents et compter les coordonn&#233;es de l'objet s&#233;lectionn&#233; pour diff&#233;rents endroits de la Terre. Cela peut &#234;tre utile lors de la planification de campagnes d&#8217;observation men&#233;es par diff&#233;rents observatoires.
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec11" class="anchor">Lecture de coordonn&#233;es </h2>
+
+<p>
+Les coordonn&#233;es calcul&#233;es sont lues &#224; partir des champs de structure d'objet.
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># coordonnées calculées</span>
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Position actuelle de la Lune&quot;</span>)
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot; ------------------------------ &quot;</span>)
+<span style="color: #408080; font-style: italic"># nous affichons l&#39;ascension droite et la déclinaison</span>
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;RA : &quot;</span>, lune<span style="color: #666666">.</span>ra)
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Dec : &quot;</span>, lune<span style="color: #666666">.</span>dec)
+<span style="color: #408080; font-style: italic"># nous affichons l&#39;azimut et l&#39;élévation</span>
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;--------------------------------&quot;</span>)
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Az : &quot;</span>, lune<span style="color: #666666">.</span>az)
+<span style="color: #008000; font-weight: bold">print</span> (<span style="color: #BA2121">&quot;El : &quot;</span> , lune<span style="color: #666666">.</span>alt)
+</pre></div>
+<p>
+Les valeurs calcul&#233;es sont donn&#233;es au format <em><b>heures: minutes: secondes</b></em> ou <em><b>degr&#233;s: minutes: secondes d'arc</b></em> pour l'heure actuelle UT sur &#233;poque 2000.
+<p>
+
+<!-- code=text typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>Position actuelle de la Lune
+ ------------------------------
+RA :  6:18:27.81
+Dec :  20:49:04.9
+--------------------------------
+Az :  197:06:32.3
+El :  56:50:39.8
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec12" class="anchor">Coordonn&#233;es en degr&#233;s </h2>
+Toutes les coordonn&#233;es calcul&#233;es par les proc&#233;dures du module <b>PyEphem</b> sont donn&#233;es en <b>radians</b>. lorsque nous voulons &#233;crire leur valeur, par exemple, les radians sont automatiquement convertis au format appropri&#233; (heures, minutes, secondes dans le cas d'une ascension droite ou degr&#233;s, minutes, secondes d'arc pour d'autres coordonn&#233;es).
+
+<p>
+Si vous souhaitez utiliser des coordonn&#233;es calcul&#233;es sur un graphique, il est utile de les convertir en degr&#233;s &#224; l'aide de la fonction degr&#233;s.
+
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># coordonnées azimutales en degrés sous forme d&#39;un nombre réel</span>
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot; -------------------------------- &quot;</span>)
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Az (deg): &quot;</span>, degrees(lune<span style="color: #666666">.</span>az))
+<span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;El (deg): &quot;</span>, degrees(lune<span style="color: #666666">.</span>alt))
+</pre></div>
+<p>
+Azimut et &#233;l&#233;vation en degr&#233;s:
+<p>
+
+<!-- code=text typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>--------------------------------
+Az (deg):  207.85208210454263
+El (deg):  55.334644372169485
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec13" class="anchor">Date et heure </h2>
+
+<p>
+Nous pouvons attribuer n'importe quelle date et heure &#224; chaque observateur:
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># PROPRE DATE ET HEURE TU</span>
+obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2019/01/13 10:00:00&quot;</span>
+</pre></div>
+<p>
+Il faut seulement se rappeler que les chiffres de la date sont s&#233;par&#233;s par le signe <code>/</code> et l'heure par deux points.
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec14" class="anchor">Mouvement apparent du Soleil - le d&#233;but du programme </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># IMPORTATION</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic"># OBSERVATEUR</span>
+obs <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Observer()
+<span style="color: #408080; font-style: italic"># TUNIS</span>
+obs<span style="color: #666666">.</span>lon, obs<span style="color: #666666">.</span>lat, obs<span style="color: #666666">.</span>elev <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;10.08&#39;</span>, <span style="color: #BA2121">&#39;36.4&#39;</span>, <span style="color: #666666">100.0</span>
+obs<span style="color: #666666">.</span>name<span style="color: #666666">=</span> <span style="color: #BA2121">&quot;SAT-TUNIS&quot;</span>
+<span style="color: #408080; font-style: italic"># OBJET</span>
+soleil <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Sun()
+<span style="color: #408080; font-style: italic"># TEMPS</span>
+tm <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span> , <span style="color: #666666">24</span> , <span style="color: #666666">25</span>)
+<span style="color: #408080; font-style: italic"># GRAPHIQUE</span>
+pt <span style="color: #666666">=</span> subplot(<span style="color: #666666">111</span> , polar<span style="color: #666666">=</span> <span style="color: #008000">True</span> )
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec15" class="anchor">Mouvement apparent du Soleil - solstice d'&#233;t&#233; </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># BOUCLE PRINCIPALE</span>
+<span style="color: #008000; font-weight: bold">for</span> t <span style="color: #AA22FF; font-weight: bold">in</span> tm :
+    <span style="color: #408080; font-style: italic"># changement de temps</span>
+    obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2014/06/21 %02 d :00:00 &quot;</span><span style="color: #666666">%</span>t
+    <span style="color: #408080; font-style: italic"># on calcule les coordonnées</span>
+    sun<span style="color: #666666">.</span>compute(obs)
+    <span style="color: #408080; font-style: italic"># coordonnées azimutales - azimut en radians</span>
+    az <span style="color: #666666">=</span> <span style="color: #008000">float</span>(<span style="color: #008000">repr</span>(sun<span style="color: #666666">.</span>az))
+    el <span style="color: #666666">=</span> degrees(<span style="color: #008000">float</span>(<span style="color: #008000">repr</span>(sun<span style="color: #666666">.</span>alt)))
+    <span style="color: #408080; font-style: italic"># graphique - on change l&#39;élévation par une distance zénithale</span>
+    pt<span style="color: #666666">.</span>plot([az], [<span style="color: #666666">90</span> <span style="color: #666666">-</span> el], ls <span style="color: #666666">=</span><span style="color: #BA2121">&quot; &quot;</span>, marker<span style="color: #666666">=</span> <span style="color: #BA2121">&quot; o &quot;</span>, c <span style="color: #666666">=</span><span style="color: #BA2121">&quot; yellow &quot;</span>, \
+    markersize <span style="color: #666666">=10</span>)
+    <span style="color: #408080; font-style: italic"># heure locale UTC +2 heures en été</span>
+    <span style="color: #008000; font-weight: bold">if</span> el <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        pt<span style="color: #666666">.</span>text (az, <span style="color: #666666">90</span> <span style="color: #666666">-</span> el, <span style="color: #BA2121">&quot; %02 d &quot;</span><span style="color: #666666">%</span>(t<span style="color: #666666">+2</span>), fontsize <span style="color: #666666">=10</span>, \
+        ha <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;left&#39;</span> , va <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;center&#39;</span>)
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec16" class="anchor">Mouvement apparent du Soleil - solstice d'hiver </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>    <span style="color: #408080; font-style: italic"># TRANSFERT HIVERNAL - nous répétons les calculs &quot;en décembre&quot;</span>
+    obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2014/12/22 </span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">:00:00&quot;</span> <span style="color: #666666">%</span> t
+    soleil<span style="color: #666666">.</span>compute(obs)
+    az <span style="color: #666666">=</span> <span style="color: #008000">float</span>(<span style="color: #008000">repr</span>(soleil<span style="color: #666666">.</span>az))
+    el <span style="color: #666666">=</span> degrees(<span style="color: #008000">float</span>(<span style="color: #008000">repr</span>(soleil<span style="color: #666666">.</span>alt)))
+    pt<span style="color: #666666">.</span>plot([az], [<span style="color: #666666">90</span> <span style="color: #666666">-</span> el], ls <span style="color: #666666">=</span><span style="color: #BA2121">&quot;&quot;</span>, marker<span style="color: #666666">=</span> <span style="color: #BA2121">&quot;o&quot;</span>, c <span style="color: #666666">=</span><span style="color: #BA2121">&quot;blue&quot;</span>, \
+    markersize <span style="color: #666666">=10</span>)
+    <span style="color: #408080; font-style: italic"># heure locale UTC +1 heures en hiver</span>
+    <span style="color: #008000; font-weight: bold">if</span> el <span style="color: #666666">&gt;</span> <span style="color: #666666">0</span>:
+        pt<span style="color: #666666">.</span>text (az, <span style="color: #666666">90</span> <span style="color: #666666">-</span> el, <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">&quot;</span><span style="color: #666666">%</span>(t<span style="color: #666666">+1</span>), fontsize <span style="color: #666666">=10</span>, \
+        ha <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;left&#39;</span> , va <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;center&#39;</span>)
+<span style="color: #408080; font-style: italic"># nous limitons la distance zénithale à 90 degrés - horizon</span>
+plt<span style="color: #666666">.</span>set_rmax(<span style="color: #666666">90.0</span>)
+<span style="color: #408080; font-style: italic"># nous plaçons le nord en haut du graphique</span>
+plt<span style="color: #666666">.</span>set_theta_zero_location(<span style="color: #BA2121">&quot;N&quot;</span>)
+<span style="color: #408080; font-style: italic"># ENGISTREZ LE GRAPHIQUE EN FORMAT PDF ET PNG</span>
+plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&quot;figs/mvtSoleil.pdf&quot;</span>); plt<span style="color: #666666">.</span>savefig (<span style="color: #BA2121">&quot;figs/mvtSoleil.png&quot;</span>)
+plt<span style="color: #666666">.</span>show ()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec17" class="anchor">Mouvement apparent du Soleil - le graphique </h2>
+<br /><br /><center><p><img src="figs/mvtSoleil.png" align="bottom" width=500></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<p>
+<!-- --- begin exercise --- -->
+
+<h2 id="___sec18" class="anchor">Exercise 1: Mouvement apparent du Soleil - r&#233;gion polaire </h2>
+
+<p>
+Changer les coordonn&#233;es g&#233;ographiques. Cette fois dans une ville proche de la r&#233;gion polaire et tracez le nouveau graphique. Que s'est-il pass&#233; et comment d&#233;crivez-vous le ph&#233;nom&#232;ne?
+
+<p>
+<!-- --- end exercise --- -->
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec19" class="anchor">Mouvement r&#233;trograde de Mars </h2>
+D&#232;s l'Antiquit&#233;, il a &#233;t&#233; remarqu&#233; que le mouvement de certains objets dans le ciel est d'un caract&#232;re diff&#233;rent du trafic de la majorit&#233; (<b>&#233;toiles fixes</b>). De tels objets ont &#233;t&#233; appel&#233;s &#233;toiles errantes (<b>plan&#232;tes</b>). Aujourd'hui, nous savons que errer sur les plan&#232;tes a pour effet de placer leur mouvement en m&#234;me temps que le mouvement de la Terre autour du Soleil. Nous pouvons retracer ce ph&#233;nom&#232;ne sur l'exemple de Mars.
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 4:  Projetion depuis la Terre (en bleu) des mouvements de la plan&#232;te ext&#233;rieure (en rouge) sur la sph&#232;re des &#233;toiles fixes. <em>Source: Wikip&#233;dia</em> </p></center>
+<p><img src="figs/retro_mars.png" align="bottom" width=500></p>
+</center>
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec20" class="anchor">Mouvement r&#233;trograde de Mars - d&#233;but du programme </h2>
+
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># IMPORTATION</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic"># deux fonctions supplémentaires du module datetime sont nécessaires</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">datetime</span> <span style="color: #008000; font-weight: bold">import</span> datetime , timedelta
+
+<span style="color: #408080; font-style: italic"># OBSERVATEUR</span>
+obs <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Observer()
+<span style="color: #408080; font-style: italic"># COORDONNÉES DE TUNIS</span>
+obs<span style="color: #666666">.</span>lon, obs<span style="color: #666666">.</span>lat, obs<span style="color: #666666">.</span>elev <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;10.08&#39;</span>, <span style="color: #BA2121">&#39;36.4&#39;</span>, <span style="color: #666666">100.0</span>
+obs<span style="color: #666666">.</span>name <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;SAT-TUNIS&quot;</span>
+<span style="color: #408080; font-style: italic"># MARS</span>
+mr <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Mars()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec21" class="anchor">Mouvement r&#233;trograde de Mars - boucle principale </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+plt<span style="color: #666666">.</span>figure(figsize<span style="color: #666666">=</span>(<span style="color: #666666">10</span>, <span style="color: #666666">5</span>))
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span> (<span style="color: #666666">0</span> , <span style="color: #666666">181</span>):
+    <span style="color: #408080; font-style: italic"># nous changeons la date d&#39;un jour pendant six mois</span>
+    dt <span style="color: #666666">=</span> datetime (<span style="color: #666666">2018</span>, <span style="color: #666666">5</span>, <span style="color: #666666">1</span>) <span style="color: #666666">+</span> timedelta(i)
+    ds <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%d</span><span style="color: #BA2121">/</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">/</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">&quot;</span><span style="color: #666666">%</span>(dt<span style="color: #666666">.</span>year, dt<span style="color: #666666">.</span>month, dt<span style="color: #666666">.</span>day)
+    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot; jour de l&#39;année: &quot;</span>, i <span style="color: #666666">+1</span> , ds)
+    <span style="color: #408080; font-style: italic"># fixer la date de l&#39;observateur et calculer les coordonnées</span>
+    obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> ds
+    mr<span style="color: #666666">.</span>compute(obs)
+    ra <span style="color: #666666">=</span> degrees(<span style="color: #008000">float</span>(<span style="color: #008000">repr</span>(mr<span style="color: #666666">.</span>ra)))
+    de <span style="color: #666666">=</span> degrees(<span style="color: #008000">float</span>(<span style="color: #008000">repr</span>(mr<span style="color: #666666">.</span>dec)))
+    <span style="color: #408080; font-style: italic"># on dessine des objets</span>
+    plot([ra], [de], c <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;red&quot;</span>, marker <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;o&quot;</span>, alpha <span style="color: #666666">=.5</span>)
+    <span style="color: #408080; font-style: italic"># nous ajoutons une description de la date en moyenne tous les 10 jours</span>
+    <span style="color: #008000; font-weight: bold">if</span> (dt<span style="color: #666666">.</span>day <span style="color: #666666">%</span> <span style="color: #666666">10</span>) <span style="color: #666666">==</span> <span style="color: #666666">0</span>: text(ra, de, ds, fontsize <span style="color: #666666">=8</span>)
+
+<span style="color: #408080; font-style: italic"># description du graphique</span>
+xlabel(<span style="color: #BA2121">&quot;ascension droite &quot;</span> <span style="color: #666666">+</span> <span style="color: #BA2121">r&quot;$\alpha$ (deg)&quot;</span>)
+ylabel(<span style="color: #BA2121">&quot; déclinaison &quot;</span> <span style="color: #666666">+</span> <span style="color: #BA2121">r&quot;$\delta$ (deg)&quot;</span>)
+title(<span style="color: #BA2121">&quot;Mouvement retrograde de Mars - 6 mois en 2018 </span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span><span style="color: #666666">+</span>obs<span style="color: #666666">.</span>name, fontweight<span style="color: #666666">=</span><span style="color: #BA2121">&#39;bold&#39;</span>)
+savefig(<span style="color: #BA2121">&quot;../figs/retrogradeMars.pdf&quot;</span>); savefig(<span style="color: #BA2121">&quot;../figs/retrogradeMars.png&quot;</span>)
+show()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec22" class="anchor">Mouvement r&#233;trograde de Mars - le graphique </h2>
+<br /><br /><center><p><img src="figs/retrogradeMars1.png" align="bottom" ></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec23" class="anchor">Mouvement r&#233;trograde de Mars - changement du texte des axes </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># conversion RA donné en degrés</span>
+<span style="color: #408080; font-style: italic"># sur les formats heure, minute et seconde</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">RAd2hms</span> (x, loc):
+    h <span style="color: #666666">=</span> x<span style="color: #666666">//15</span>
+    m <span style="color: #666666">=</span> <span style="color: #008000">int</span>(((x <span style="color: #666666">-</span> h <span style="color: #666666">*</span> <span style="color: #666666">15.0</span>) <span style="color: #666666">/</span> <span style="color: #666666">15.0</span>) <span style="color: #666666">*</span> <span style="color: #666666">60.0</span>)
+    s <span style="color: #666666">=</span> ((x <span style="color: #666666">-</span> h <span style="color: #666666">*15</span> <span style="color: #666666">-</span> m <span style="color: #666666">/</span> <span style="color: #666666">4.0</span>) <span style="color: #666666">/</span> <span style="color: #666666">15.0</span>) <span style="color: #666666">*</span> <span style="color: #666666">3600.0</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">h</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">m</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">s&quot;</span><span style="color: #666666">%</span>(h, m, s)
+<span style="color: #408080; font-style: italic"># changement de déclinaison donné en degrés</span>
+<span style="color: #408080; font-style: italic"># le format du degré, minute, second arc</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">DEd2dms</span> (x , loc ):
+    d <span style="color: #666666">=</span> <span style="color: #008000">int</span>(fabs(x))
+    m <span style="color: #666666">=</span> <span style="color: #008000">int</span>((fabs(x) <span style="color: #666666">-</span> d)<span style="color: #666666">*60</span>)
+    s <span style="color: #666666">=</span> (fabs(x) <span style="color: #666666">-</span> d <span style="color: #666666">-</span> m <span style="color: #666666">/60.0</span>)<span style="color: #666666">*3600.0</span>
+    <span style="color: #008000; font-weight: bold">if</span> x <span style="color: #666666">&lt;0</span>: d <span style="color: #666666">=</span> <span style="color: #666666">-1</span> <span style="color: #666666">*</span> d
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #BA2121">&quot; </span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">d</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">m</span><span style="color: #BB6688; font-weight: bold">%02d</span><span style="color: #BA2121">s&quot;</span><span style="color: #666666">%</span>(d, m, s)
+
+<span style="color: #408080; font-style: italic"># description du graphique</span>
+xlabel(<span style="color: #BA2121">&quot;ascension droite &quot;</span> <span style="color: #666666">+</span> <span style="color: #BA2121">r&quot;$\alpha$&quot;</span>)
+gca()<span style="color: #666666">.</span>xaxis<span style="color: #666666">.</span>set_major_formatter(FuncFormatter(RAd2hms))
+ylabel(<span style="color: #BA2121">&quot; déclinaison &quot;</span> <span style="color: #666666">+</span> <span style="color: #BA2121">r&quot;$\delta$&quot;</span>)
+gca()<span style="color: #666666">.</span>yaxis<span style="color: #666666">.</span>set_major_formatter(FuncFormatter(DEd2dms))
+title(<span style="color: #BA2121">&quot;Mouvement retrograde de Mars - 6 mois en 2018 </span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&quot;</span><span style="color: #666666">+</span>obs<span style="color: #666666">.</span>name, fontweight<span style="color: #666666">=</span><span style="color: #BA2121">&#39;bold&#39;</span>)
+
+savefig(<span style="color: #BA2121">&quot;../figs/retrogradeMars.pdf&quot;</span>); savefig(<span style="color: #BA2121">&quot;../figs/retrogradeMars.png&quot;</span>)
+show()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec24" class="anchor">Mouvement r&#233;trograde de Mars - le graphique </h2>
+<br /><br /><center><p><img src="figs/retrogradeMars.png" align="bottom" ></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<p>
+<!-- --- begin exercise --- -->
+
+<h2 id="___sec25" class="anchor">Exercise 2: Quand le prochain mouvement r&#233;trograde de la plan&#232;te Mars? </h2>
+
+<p>
+Changez la p&#233;riode et trouvez le prochain mouvement r&#233;trograde de la plan&#232;te Mars.
+
+<p>
+<!-- --- end exercise --- -->
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec26" class="anchor">Mouvement des lunes galil&#233;ennes - d&#233;but du programme  </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># IMPORTATION</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic"># NOUS CRÉONS LES OBJETS</span>
+Io <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Io()
+Eu <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Europa()
+Ga <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Ganymede()
+Ca <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Callisto()
+<span style="color: #408080; font-style: italic"># Créons des tableaux vide pour</span>
+<span style="color: #408080; font-style: italic"># SAUVEGARDER LES COORDONNÉES</span>
+y <span style="color: #666666">=</span> []
+xIo <span style="color: #666666">=</span> []
+xEu <span style="color: #666666">=</span> []
+xGa <span style="color: #666666">=</span> []
+xCa <span style="color: #666666">=</span> []
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec27" class="anchor">Mouvement des lunes galil&#233;ennes - boucle principale  </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># pas de temps - heure</span>
+dt <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>hour
+<span style="color: #408080; font-style: italic"># temps initial</span>
+ts <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>now()
+<span style="color: #408080; font-style: italic"># heure actuelle</span>
+tm <span style="color: #666666">=</span> ts
+N<span style="color: #666666">=2*24</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N):
+    <span style="color: #408080; font-style: italic"># nous calculons des valeurs y</span>
+    y<span style="color: #666666">.</span>append((tm <span style="color: #666666">-</span> ts)<span style="color: #666666">*24.0</span>)
+    <span style="color: #408080; font-style: italic"># nous calculons des valeurs x</span>
+    Io<span style="color: #666666">.</span>compute(tm)
+    Eu<span style="color: #666666">.</span>compute(tm)
+    Ga<span style="color: #666666">.</span>compute(tm)
+    Ca<span style="color: #666666">.</span>compute(tm)
+    <span style="color: #408080; font-style: italic"># nous ajoutons des calculs aux tableaux</span>
+    xIo<span style="color: #666666">.</span>append(Io<span style="color: #666666">.</span>x)
+    xEu<span style="color: #666666">.</span>append(Eu<span style="color: #666666">.</span>x)
+    xGa<span style="color: #666666">.</span>append(Ga<span style="color: #666666">.</span>x)
+    xCa<span style="color: #666666">.</span>append(Ca<span style="color: #666666">.</span>x)
+    <span style="color: #408080; font-style: italic"># on augmente le temps d&#39;une heure</span>
+    tm <span style="color: #666666">+=</span> dt
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec28" class="anchor">Mouvement des lunes galil&#233;ennes - le graphique  </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+fig1 <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>figure()
+plot(xIo, y, marker <span style="color: #666666">=</span><span style="color: #BA2121">&quot;o&quot;</span>, label <span style="color: #666666">=</span><span style="color: #BA2121">&quot;Io&quot;</span>)
+plot(xEu, y, marker <span style="color: #666666">=</span><span style="color: #BA2121">&quot;o&quot;</span>, label <span style="color: #666666">=</span><span style="color: #BA2121">&quot;Europa&quot;</span>)
+plot(xGa, y, marker <span style="color: #666666">=</span><span style="color: #BA2121">&quot;o&quot;</span>, label <span style="color: #666666">=</span><span style="color: #BA2121">&quot;Ganimedes&quot;</span>)
+plot(xCa, y, marker <span style="color: #666666">=</span><span style="color: #BA2121">&quot;o&quot;</span>, label <span style="color: #666666">=</span><span style="color: #BA2121">&quot;Callisto&quot;</span>)
+plot(zeros(<span style="color: #008000">len</span>(y)),y ,marker <span style="color: #666666">=</span><span style="color: #BA2121">r&quot;$\mathcircled{J}$&quot;</span>, markersize <span style="color: #666666">=15</span>,
+     label <span style="color: #666666">=</span><span style="color: #BA2121">&quot;Jupiter&quot;</span>,color <span style="color: #666666">=</span><span style="color: #BA2121">&quot;orange&quot;</span>, fillstyle<span style="color: #666666">=</span> <span style="color: #BA2121">&#39;none&#39;</span>)
+xlabel(<span style="color: #BA2121">u&quot;position par rapport à Jupiter&quot;</span>)
+ylabel(<span style="color: #BA2121">&quot;Heures à partir de (</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121"> TU)&quot;</span><span style="color: #666666">%</span> ts)
+ylim(<span style="color: #666666">0</span>,N<span style="color: #666666">+3</span>)
+title(<span style="color: #BA2121">u&quot;Mouvement des lunes galiléennes&quot;</span>)
+grid()
+legend(loc <span style="color: #666666">=1</span>)
+
+tight_layout()
+savefig(<span style="color: #BA2121">&quot;../figs/mvtjov.pdf&quot;</span>); savefig(<span style="color: #BA2121">&quot;../figs/mvtjov.png&quot;</span>)
+show()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec29" class="anchor">Mouvement des lunes galil&#233;ennes - le graphique </h2>
+<br /><br /><center><p><img src="figs/mvtjov.png" align="bottom" ></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec30" class="anchor">D&#233;termination de l'&#233;clipse solaire - d&#233;but du programme </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># IMPORTATION</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic"># OBSERVATEUR</span>
+obs <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Observer()
+obs<span style="color: #666666">.</span>lon, obs<span style="color: #666666">.</span>lat, obs<span style="color: #666666">.</span>elev <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;10.08&#39;</span>, <span style="color: #BA2121">&#39;36.4&#39;</span>, <span style="color: #666666">100.0</span>
+obs<span style="color: #666666">.</span>name <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;SAT-TUNIS&quot;</span>
+<span style="color: #408080; font-style: italic"># OBJETSNIS</span>
+soleil <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Sun()
+lune <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Moon()
+<span style="color: #408080; font-style: italic"># pas de temps - heure</span>
+dt <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>hour
+<span style="color: #408080; font-style: italic"># temps initial</span>
+<span style="color: #408080; font-style: italic">#ts = ep.now()</span>
+ts<span style="color: #666666">=</span>ep<span style="color: #666666">.</span>Date(<span style="color: #BA2121">&quot;2015-01-01 00:00:00&quot;</span>)
+<span style="color: #408080; font-style: italic"># heure actuelle</span>
+tm <span style="color: #666666">=</span> ts
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec31" class="anchor">D&#233;termination de l'&#233;clipse solaire - boucle principale </h2>
+Nous v&#233;rifions la s&#233;paration du soleil et de la lune toutes les heures pendant les 10 prochaines ann&#233;es.
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span> (<span style="color: #666666">365*24*10</span>):
+    <span style="color: #408080; font-style: italic"># nous fixons l&#39;heure actuelle</span>
+    obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> tm
+    <span style="color: #408080; font-style: italic"># nous calculons les coordonnées</span>
+    soleil<span style="color: #666666">.</span>compute(obs)
+    lune<span style="color: #666666">.</span>compute(obs)
+    <span style="color: #408080; font-style: italic"># rayons</span>
+    rs <span style="color: #666666">=</span> soleil<span style="color: #666666">.</span>radius
+    rl <span style="color: #666666">=</span> lune<span style="color: #666666">.</span>radius
+    <span style="color: #408080; font-style: italic"># on calcule la distance angulaire</span>
+    sp <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>separation(soleil, lune)
+    <span style="color: #408080; font-style: italic"># on vérifie si la somme des rayons sera inférieure</span>
+    <span style="color: #408080; font-style: italic"># à la séparation calculée</span>
+    <span style="color: #008000; font-weight: bold">if</span> sp <span style="color: #666666">&lt;</span> rs <span style="color: #666666">+</span> rl :
+    <span style="color: #408080; font-style: italic"># nous vérifions si le soleil sera au-dessus de l&#39;horizon</span>
+        <span style="color: #008000; font-weight: bold">if</span> soleil<span style="color: #666666">.</span>alt <span style="color: #666666">&gt;</span> <span style="color: #666666">0.0</span>:
+            <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;Date de l&#39;eclipse UT: &quot;</span>, ep<span style="color: #666666">.</span>Date(tm), <span style="color: #BA2121">&quot;Separation: &quot;</span>, sp)
+    <span style="color: #408080; font-style: italic"># on augmente le temps par pas d&#39;une heure</span>
+    tm <span style="color: #666666">+=</span> dt
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec32" class="anchor">D&#233;termination de l'&#233;clipse solaire -  </h2>
+Les dates de l'&#233;clipse solaire planifi&#233;e visible de la Tunisie au cours des 10 prochaines ann&#233;es.
+<p>
+
+<!-- code=text typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>Date de l&#39;eclipse UT:  2020/6/21 05:00:00 Separation:  0:30:50.0
+Date de l&#39;eclipse UT:  2022/10/25 10:00:00 Separation:  0:29:25.7
+Date de l&#39;eclipse UT:  2022/10/25 11:00:00 Separation:  0:30:51.9
+Date de l&#39;eclipse UT:  2025/3/29 11:00:00 Separation:  0:32:49.2
+Date de l&#39;eclipse UT:  2026/8/12 18:00:00 Separation:  0:20:53.8
+Date de l&#39;eclipse UT:  2027/8/2 08:00:00 Separation:  0:30:44.7
+Date de l&#39;eclipse UT:  2027/8/2 09:00:00 Separation:  0:04:33.3
+Date de l&#39;eclipse UT:  2027/8/2 10:00:00 Separation:  0:21:01.3
+Date de l&#39;eclipse UT:  2028/1/26 16:00:00 Separation:  0:26:09.8
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec33" class="anchor">Phases d'une &#233;clipse solaire - d&#233;but du programme </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># IMPORTATION</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic"># OBSERVATEUR</span>
+obs <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Observer()
+<span style="color: #408080; font-style: italic"># TUNIS</span>
+obs<span style="color: #666666">.</span>lon, obs<span style="color: #666666">.</span>lat, obs<span style="color: #666666">.</span>elev <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;10.08&#39;</span>, <span style="color: #BA2121">&#39;36.4&#39;</span>, <span style="color: #666666">100.0</span>
+obs<span style="color: #666666">.</span>name<span style="color: #666666">=</span> <span style="color: #BA2121">&quot;SAT-TUNIS&quot;</span>
+<span style="color: #408080; font-style: italic"># CRÉER DES OBJETS</span>
+soleil <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Sun()
+lune <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Moon()
+<span style="color: #408080; font-style: italic"># intervalle de temps - 20 minutes</span>
+dt <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>hour<span style="color: #666666">/4.</span>
+<span style="color: #408080; font-style: italic"># TEMPS DE DÉBUT</span>
+ts <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Date(<span style="color: #BA2121">&quot;2027-08-02 08:00:00&quot;</span>)
+obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> ts
+<span style="color: #408080; font-style: italic"># nous calculons les coordonnées</span>
+soleil<span style="color: #666666">.</span>compute(obs)
+lune<span style="color: #666666">.</span>compute(obs)
+rs <span style="color: #666666">=</span> degrees(soleil<span style="color: #666666">.</span>radius)
+rl <span style="color: #666666">=</span> degrees(lune<span style="color: #666666">.</span>radius )
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec34" class="anchor">Phases d'une &#233;clipse solaire - suite </h2>
+
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># nous calculons les coordonnées</span>
+soleil<span style="color: #666666">.</span>compute(obs)
+lune<span style="color: #666666">.</span>compute(obs)
+rs <span style="color: #666666">=</span> degrees(soleil<span style="color: #666666">.</span>radius)
+rl <span style="color: #666666">=</span> degrees(lune<span style="color: #666666">.</span>radius )
+
+<span style="color: #408080; font-style: italic"># Nous créons un graphique en l&#39;attribuant à un pl COMME variable</span>
+fig<span style="color: #666666">=</span>plt<span style="color: #666666">.</span>figure(figsize<span style="color: #666666">=</span>(<span style="color: #666666">6</span>,<span style="color: #666666">5</span>))
+pl <span style="color: #666666">=</span> subplot(<span style="color: #666666">111</span>, aspect <span style="color: #666666">=</span><span style="color: #BA2121">&quot;equal&quot;</span>)
+<span style="color: #408080; font-style: italic"># titre du graphique avec date et heure</span>
+pl<span style="color: #666666">.</span>set_title (obs<span style="color: #666666">.</span>name<span style="color: #666666">+</span><span style="color: #BA2121">&quot;</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121"> début en (TU): &quot;</span><span style="color: #666666">+</span><span style="color: #008000">str</span>(ep<span style="color: #666666">.</span>Date(ts)))
+<span style="color: #408080; font-style: italic"># Nous nous plaçons le soleil dans le centre</span>
+sc<span style="color: #666666">=</span>Circle((<span style="color: #666666">0</span> ,<span style="color: #666666">0</span>), rs, facecolor <span style="color: #666666">=</span><span style="color: #BA2121">&quot;yellow&quot;</span>,
+            edgecolor <span style="color: #666666">=</span><span style="color: #BA2121">&quot;red&quot;</span>, lw <span style="color: #666666">=2</span>)
+
+pl<span style="color: #666666">.</span>add_artist(sc)
+<span style="color: #408080; font-style: italic"># les coordonnées du Soleil</span>
+pl<span style="color: #666666">.</span>text(<span style="color: #666666">0</span>, rs<span style="color: #666666">+0.1</span>, <span style="color: #BA2121">&quot;Az: </span><span style="color: #BB6688; font-weight: bold">%.1f</span><span style="color: #BA2121">, El: </span><span style="color: #BB6688; font-weight: bold">%.1f</span><span style="color: #BA2121">&quot;</span><span style="color: #666666">%</span>(degrees(soleil<span style="color: #666666">.</span>az), degrees(soleil<span style="color: #666666">.</span>alt)),
+        ha<span style="color: #666666">=</span><span style="color: #BA2121">&#39;center&#39;</span>, fontsize <span style="color: #666666">=14</span>)
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec35" class="anchor">Phases d'une &#233;clipse solaire - boucle principale </h2>
+
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># Nous plaçons la Lune dans la figure</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>):
+    <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;time UT: &quot;</span>, ep<span style="color: #666666">.</span>Date(ts))
+    obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> ts
+    <span style="color: #408080; font-style: italic"># nous calculons les coordonnées</span>
+    soleil<span style="color: #666666">.</span>compute(obs)
+    lune<span style="color: #666666">.</span>compute(obs)
+    <span style="color: #408080; font-style: italic"># Nous calculons la différence de position</span>
+    az <span style="color: #666666">=</span> degrees(soleil<span style="color: #666666">.</span>az <span style="color: #666666">-</span> lune<span style="color: #666666">.</span>az)
+    el <span style="color: #666666">=</span> degrees(soleil<span style="color: #666666">.</span>alt <span style="color: #666666">-</span> lune<span style="color: #666666">.</span>alt)
+    <span style="color: #408080; font-style: italic"># dessiner et la position réelle en empillements d&#39;image de Lune; le Soleil estau centre</span>
+    kc <span style="color: #666666">=</span> Circle((az , el), rl , facecolor <span style="color: #666666">=</span><span style="color: #BA2121">&quot;gray&quot;</span>,
+                edgecolor <span style="color: #666666">=</span><span style="color: #BA2121">&quot;black&quot;</span>, lw <span style="color: #666666">=2</span>, alpha <span style="color: #666666">=0.3</span>)
+    pl<span style="color: #666666">.</span>add_artist(kc)
+    <span style="color: #408080; font-style: italic"># augmenter le temps de 20 minutes</span>
+    ts <span style="color: #666666">+=</span> dt
+
+pl<span style="color: #666666">.</span>set_xlim (<span style="color: #666666">-1.0</span>, <span style="color: #666666">1.0</span>)
+pl<span style="color: #666666">.</span>set_ylim (<span style="color: #666666">-1.0</span>, <span style="color: #666666">1.0</span>)
+pl<span style="color: #666666">.</span>set_xlabel (<span style="color: #BA2121">&quot;degré&quot;</span>)
+pl<span style="color: #666666">.</span> set_ylabel (<span style="color: #BA2121">&quot;degré&quot;</span>)
+plt<span style="color: #666666">.</span>tight_layout()
+savefig(<span style="color: #BA2121">&quot;../figs/eclipse_sol_&quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">str</span>(ts) <span style="color: #666666">+</span><span style="color: #BA2121">&quot;.pdf&quot;</span>); savefig(<span style="color: #BA2121">&quot;../figs/eclipse_sol_&quot;</span> <span style="color: #666666">+</span> <span style="color: #008000">str</span>(ts) <span style="color: #666666">+</span><span style="color: #BA2121">&quot;.png&quot;</span>)
+show ()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec36" class="anchor">Phases d'une &#233;clipse solaire - le graphique </h2>
+<br /><br /><center><p><img src="figs/eclipse_sol.png" align="bottom" ></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec37" class="anchor">Conjonction de la lune et des plan&#232;tes </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># IMPORTOWANIE</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">ephem</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ep</span>
+<span style="color: #408080; font-style: italic"># OBSERVATEUR</span>
+obs <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Observer()
+<span style="color: #408080; font-style: italic"># TUNIS</span>
+obs<span style="color: #666666">.</span>lon, obs<span style="color: #666666">.</span>lat, obs<span style="color: #666666">.</span>elev <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;10.08&#39;</span>, <span style="color: #BA2121">&#39;36.4&#39;</span>, <span style="color: #666666">100.0</span>
+obs<span style="color: #666666">.</span>name<span style="color: #666666">=</span> <span style="color: #BA2121">&quot;SAT-TUNIS&quot;</span>
+<span style="color: #408080; font-style: italic"># NOUS CRÉONS UN OBJET</span>
+<span style="color: #408080; font-style: italic"># on vérifie si c&#39;est sous l&#39;horizon</span>
+soleil <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Sun()
+lune <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Moon()
+venus <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Venus()
+mars <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Mars()
+jupiter <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>Jupiter()
+<span style="color: #408080; font-style: italic"># pas de temps - heure</span>
+dt <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>hour
+<span style="color: #408080; font-style: italic"># temps initial</span>
+ts <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>now()
+<span style="color: #408080; font-style: italic"># heure actuelle</span>
+tm <span style="color: #666666">=</span> ts
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec38" class="anchor">Conjonction de la lune et des plan&#232;tes - boucle principale </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic"># BOUCLE PRINCIPAL DU PROGRAMME</span>
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span> (<span style="color: #666666">365*24*1</span>):
+<span style="color: #408080; font-style: italic"># nous fixons l&#39;heure actuelle</span>
+    obs<span style="color: #666666">.</span>date <span style="color: #666666">=</span> tm
+    <span style="color: #408080; font-style: italic"># nous calculons des coordonnées</span>
+    soleil<span style="color: #666666">.</span>compute(obs)
+    lune<span style="color: #666666">.</span>compute(obs)
+    venus<span style="color: #666666">.</span>compute(obs)
+    mars<span style="color: #666666">.</span>compute(obs)
+    jupiter<span style="color: #666666">.</span>compute(obs)
+    <span style="color: #408080; font-style: italic"># on calcule la séparation</span>
+    s1 <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>separation(venus , lune)
+    s2 <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>separation(mars , lune)
+    s3 <span style="color: #666666">=</span> ep<span style="color: #666666">.</span>separation(jupiter , lune)
+    <span style="color: #408080; font-style: italic"># la séparation doit être inférieure à 5 degrés</span>
+    <span style="color: #008000; font-weight: bold">if</span> degrees(s1) <span style="color: #666666">&lt;</span> <span style="color: #666666">5</span>:
+        <span style="color: #408080; font-style: italic"># nous vérifions si la lune sera au-dessus de l&#39;horizon</span>
+        <span style="color: #408080; font-style: italic"># et si le soleil est au-dessous de l&#39;horizon</span>
+        <span style="color: #008000; font-weight: bold">if</span> degrees(lune<span style="color: #666666">.</span>alt) <span style="color: #666666">&gt;</span> <span style="color: #666666">5.0</span> <span style="color: #AA22FF; font-weight: bold">and</span> degrees(soleil<span style="color: #666666">.</span>alt) <span style="color: #666666">&lt;</span> <span style="color: #666666">-5.0</span>:
+            <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;-------------------------------------------------------------&quot;</span>)
+            <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;précédente nouvelle lune , UT :&quot;</span>, ep<span style="color: #666666">.</span>previous_new_moon(ep<span style="color: #666666">.</span>Date(tm)))
+            <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;Vénus - Lune , UT :&quot;</span>, ep<span style="color: #666666">.</span>Date(tm) ,<span style="color: #BA2121">&quot;séparation :&quot;</span>, s1)
+            <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;pos. Lune :&quot;</span>, lune<span style="color: #666666">.</span>az ,<span style="color: #BA2121">&quot;El :&quot;</span>, lune<span style="color: #666666">.</span>alt)
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec39" class="anchor">Conjonction de la lune et des plan&#232;tes - boucle principale (suite) </h2>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">if</span> degrees(s2) <span style="color: #666666">&lt;</span> <span style="color: #666666">5</span>:
+    <span style="color: #008000; font-weight: bold">if</span> degrees(lune<span style="color: #666666">.</span>alt) <span style="color: #666666">&gt;</span> <span style="color: #666666">5.0</span> <span style="color: #AA22FF; font-weight: bold">and</span> degrees(soleil<span style="color: #666666">.</span>alt) <span style="color: #666666">&lt;</span> <span style="color: #666666">-5.0</span>:
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;------------------------------------------------------------------&quot;</span>)
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;précédente nouvelle lune , UT :&quot;</span>, ep<span style="color: #666666">.</span>previous_new_moon(ep<span style="color: #666666">.</span>Date(tm)))
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;Mars - Lune , UT :&quot;</span>, ep<span style="color: #666666">.</span>Date(tm) ,<span style="color: #BA2121">&quot;séparation :&quot;</span>, s2)
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;Pos. Lune, Az :&quot;</span>, lune<span style="color: #666666">.</span>az ,<span style="color: #BA2121">&quot;El :&quot;</span>, lune<span style="color: #666666">.</span>alt)
+<span style="color: #008000; font-weight: bold">if</span> degrees(s3) <span style="color: #666666">&lt;</span> <span style="color: #666666">5</span>:
+    <span style="color: #008000; font-weight: bold">if</span> degrees(lune<span style="color: #666666">.</span>alt) <span style="color: #666666">&gt;</span> <span style="color: #666666">5.0</span> <span style="color: #AA22FF; font-weight: bold">and</span> degrees(soleil<span style="color: #666666">.</span>alt) <span style="color: #666666">&lt;</span> <span style="color: #666666">-5.0</span>:
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;--------------------------------------------------------------&quot;</span>)
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;précédente nouvelle lune , UT :&quot;</span>, ep<span style="color: #666666">.</span>previous_new_moon(ep<span style="color: #666666">.</span>Date(tm)))
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;Jupiter - Lune , UT :&quot;</span>, ep<span style="color: #666666">.</span>Date(tm) ,<span style="color: #BA2121">&quot;séparation :&quot;</span>, s3)
+        <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">u&quot;Pos. Lune, Az :&quot;</span>, lune<span style="color: #666666">.</span>az ,<span style="color: #BA2121">&quot;El :&quot;</span>, lune<span style="color: #666666">.</span>alt)
+    <span style="color: #408080; font-style: italic"># on augmente le temps d&#39;une heure</span>
+tm <span style="color: #666666">+=</span> dt
+</pre></div>
+<p>
+Exemples de r&#233;sultats de calculs:
+
+<p>
+
+<!-- code=text typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>--------------------------------------------------------------
+précédente nouvelle lune , UT : 2019/1/6 01:28:11
+Jupiter - Lune , UT : 2019/1/31 03:47:21 séparation : 3:09:07.3
+Pos. Lune, Az : 122:58:36.9 El : 8:18:03.0
+--------------------------------------------------------------
+précédente nouvelle lune , UT : 2019/2/4 21:03:35
+Vénus - Lune , UT : 2019/3/3 04:47:21 séparation : 4:07:18.5
+pos. Lune : 121:01:33.3 El : 6:15:18.7
+--------------------------------------------------------------
+</pre></div>
+<p>
+<!-- !split -->
+
+<h1 id="___sec40" class="anchor">Cartopy </h1>
+<b>Cartopy</b> est un package Python con&#231;u pour le traitement des donn&#233;es g&#233;ospatiales afin de produire des cartes et d&#8217;autres analyses de donn&#233;es g&#233;ospatiales.
+
+<p>
+<b>Installation de Cartopy:</b>
+
+<p>
+Le moyen le plus simple d&#8217;installer <b>Cartopy</b> est <b>Conda</b>. Pour toutes les plateformes, l&#8217;installation de cartopy peut se faire avec:
+<p>
+
+<!-- code=shell (!bc shell) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>conda install -c conda-forge cartopy
+</pre></div>
+<p>
+<b>Exemple simple:</b>
+
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">datetime</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">cartopy.crs</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">ccrs</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">cartopy.feature.nightshade</span> <span style="color: #008000; font-weight: bold">import</span> Nightshade
+fig <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>figure(figsize<span style="color: #666666">=</span>(<span style="color: #666666">10</span>, <span style="color: #666666">5</span>))
+ax <span style="color: #666666">=</span> fig<span style="color: #666666">.</span>add_subplot(<span style="color: #666666">1</span>, <span style="color: #666666">1</span>, <span style="color: #666666">1</span>, projection<span style="color: #666666">=</span>ccrs<span style="color: #666666">.</span>PlateCarree())
+date <span style="color: #666666">=</span> datetime<span style="color: #666666">.</span>datetime(<span style="color: #666666">2019</span>, <span style="color: #666666">1</span>, <span style="color: #666666">13</span>, <span style="color: #666666">11</span>)
+ax<span style="color: #666666">.</span>set_title(<span style="color: #BA2121">&#39;Night time shading for {}&#39;</span><span style="color: #666666">.</span>format(date))
+ax<span style="color: #666666">.</span>stock_img()
+ax<span style="color: #666666">.</span>add_feature(Nightshade(date, alpha<span style="color: #666666">=0.2</span>))
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+<!-- !split -->
+
+<h2 id="___sec41" class="anchor">Graphique </h2>
+<br /><br /><center><p><img src="figs/cartopy1.png" align="bottom" width=500></p></center><br /><br />
+
+<p>
+<!-- !split -->
+
+<h2 id="___sec42" class="anchor">Application: Eclipse totale du Soleil en 2027 </h2>
+<br /><br /><center><p><img src="figs/eclipse-4659.jpg" align="bottom" width=500></p></center><br /><br />
+
+<p>
+<!-- !split -->
+<b>Merci de votre attention!</b>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright --> &copy; 2019, Ahmed Ammar. Released under CC Attribution 4.0 license
+</center>
+
+
+</body>
+</html>
+    
+
