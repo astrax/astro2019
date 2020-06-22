@@ -7,20 +7,20 @@ Created on Tue Jan  3 22:06:05 2017
 
 # IMPORTATION
 from pylab import *
-#plt.style.use('dark_background')
+plt.style.use('dark_background')
 import ephem as ep
 # OBSERVATEUR
 obs = ep.Observer()
 # TUNIS
-obs.lon, obs.lat, obs.elev = '10.08', '36.4', 100.0
-obs.name= "SAT-TUNIS"
+obs.lon, obs.lat, obs.elev = '54.09', '17.01', 15
+obs.name= "SAT-SALALA OMAN : www.sat.tn"
 # CRÉER DES OBJETS
 soleil = ep.Sun()
 lune = ep.Moon()
 # intervalle de temps - 20 minutes
 dt = ep.hour/4.
 # TEMPS DE DÉBUT 
-ts = ep.Date("2027-08-02 08:00:00")
+ts = ep.Date("2020-06-21 04:02:38")
 obs.date = ts
 
 # nous calculons les coordonnées
@@ -54,7 +54,7 @@ for i in range(10):
     az = degrees(soleil.az - lune.az)
     el = degrees(soleil.alt - lune.alt)
     # dessiner et la position réelle en empillements d'image de Lune; le Soleil estau centre 
-    kc = Circle((az , el), rl , facecolor ="gray",
+    kc = Circle((el, az), rl , facecolor ="gray",
                 edgecolor ="black", lw =2, alpha =0.3)
     pl.add_artist(kc)
     # augmenter le temps de 20 minutes

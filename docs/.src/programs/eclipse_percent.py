@@ -10,12 +10,12 @@ def check_non_zero(x):
     return x > 0
 # OBSERVATEUR
 obs = ep.Observer()
-obs.lon, obs.lat, obs.elev = '10.08', '36.4', 100.0
-obs.name = "SAT-TUNIS"
+obs.lon, obs.lat, obs.elev = '54.09', '17.01', 15
+obs.name = "SAT-SALALA OMAN"
 # Objets
 soleil, lune = ep.Sun(), ep.Moon()
 # temps initial
-ts = (2027, 8, 2, 8, 00, 00)
+ts = (2020, 6, 21, 4, 00, 00)
 obs.date=ts
 
 
